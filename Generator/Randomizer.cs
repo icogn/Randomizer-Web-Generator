@@ -13,6 +13,7 @@ namespace TPRandomizer
     using TPRandomizer.FcSettings.Enums;
     using System.Reflection;
     using Assets;
+    using System.ComponentModel;
 
     /// <summary>
     /// Generates a randomizer seed given a settings string.
@@ -1479,8 +1480,6 @@ namespace TPRandomizer
                 currentCheck.itemWasPlaced = false;
                 currentCheck.isRequired = false;
                 Checks.CheckDict[fileName] = currentCheck;
-
-                // Console.WriteLine(fileName);
             }
         }
 
