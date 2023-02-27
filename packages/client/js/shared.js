@@ -376,6 +376,7 @@
       { id: 'openMapCheckbox' },
       { id: 'spinnerSpeedCheckbox' },
       { id: 'openDotCheckbox' },
+      { id: 'hcKeysyCheckbox' },
     ].map(({ id, bitLength }) => {
       const val = getVal(id);
       if (bitLength) {
@@ -763,6 +764,7 @@
     processBasic({ id: 'openMap' });
     processBasic({ id: 'increaseSpinnerSpeed' });
     processBasic({ id: 'openDot' });
+    processBasic({ id: 'hcKeysy' });
     }
 
     res.startingItems = processor.nextEolList(9);

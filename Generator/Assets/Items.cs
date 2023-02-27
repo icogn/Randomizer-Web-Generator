@@ -838,6 +838,25 @@ namespace TPRandomizer
                 }
             }
 
+            if (parseSetting.hcKeysy)
+{
+            if (this.RandomizedImportantItems.Contains(Item.Hyrule_Castle_Small_Key))
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    this.RandomizedImportantItems.Remove(Item.Hyrule_Castle_Small_Key);
+                     Randomizer.Items.BaseItemPool.Remove(Item.Hyrule_Castle_Small_Key);
+                }
+            }
+  else if (this.RandomizedDungeonRegionItems.Contains(Item.Hyrule_Castle_Small_Key))
+  {
+                for (int i = 0; i < 4; i++)
+                {
+                    this.RandomizedDungeonRegionItems.Remove(Item.Hyrule_Castle_Small_Key);
+                }
+  }
+}
+
             Randomizer.Items.BaseItemPool.AddRange(this.RandomizedImportantItems);
             return;
         }

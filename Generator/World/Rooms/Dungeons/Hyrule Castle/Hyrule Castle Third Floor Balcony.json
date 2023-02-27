@@ -8,7 +8,7 @@
   "NeighbourRequirements": [
     "CanDefeatDarknut and CanDefeatLizalfos and canKnockDownHCPainting",
     "Lantern and CanDefeatDinalfos",
-    "((Hyrule_Castle_Small_Key, 2) or (Setting.smallKeySettings equals Keysy))"
+    "((Hyrule_Castle_Small_Key, 2) or (Setting.smallKeySettings equals Keysy)or (Setting.hcKeysy equals True))"
   ],
     "Checks": 
     [

@@ -402,6 +402,14 @@ namespace TPRandomizer.Assets
             { 0x15, 0xBD }, // open big door in room 1 cs part 2 trigger
             { 0x15, 0xBF }, // statue placed in slot in room 1
         };
+        public static readonly byte[,] HcKeysyRegionFlags = new byte[,]
+        {
+            { 0x18, 0x93 }, // Unlock door outside 3F.
+            { 0x18, 0xB0 }, // Unlock treasure room door.
+            { 0x18, 0xA3 }, // Unlock door in south garden.
+            { 0x18, 0xA1 }, // Unlocked Hyrule Castle Boss Door.
+            { 0x18, 0xED }, // Got Hyrule Castle Big Key.
+        };
 
         /// <summary>
         /// summary text.
@@ -425,6 +433,7 @@ namespace TPRandomizer.Assets
                 { 18, OpenGroveRegionFlags },
                 { 19, OpenDMTRegionFlags },
                 { 20, OpenDotRegionFlags },
+                { 21, HcKeysyRegionFlags },
             };
 
         /// <summary>
@@ -634,6 +643,7 @@ namespace TPRandomizer.Assets
             /* 18 */RandomizerSettings.totEntrance == TotEntrance.OpenGrove,
             /* 19 */RandomizerSettings.goronMinesEntrance == GoronMinesEntrance.Open,
             /* 20 */RandomizerSettings.openDot,
+            /* 21 */RandomizerSettings.hcKeysy 
         };
     }
 }

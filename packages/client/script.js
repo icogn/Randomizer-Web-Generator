@@ -359,6 +359,9 @@ document
   document
   .getElementById('openDotCheckbox')
   .addEventListener('click', setSettingsString);
+  document
+  .getElementById('hcKeysyCheckbox')
+  .addEventListener('click', setSettingsString);
 document
   .getElementById('importSettingsStringButton')
   .addEventListener('click', importSettingsString);
@@ -494,6 +497,9 @@ function setSettingsString() {
   ).checked;
   settingsStringRaw[40] = document.getElementById(
     'openDotCheckbox'
+  ).checked;
+  settingsStringRaw[41] = document.getElementById(
+    'hcKeysyCheckbox'
   ).checked;
   // document.getElementById('settingsStringTextbox').value =
   document.getElementById('settingsStringTextbox').textContent =
@@ -656,7 +662,8 @@ var arrayOfSettingsItems = [
   'instantTextCheckbox',
   'openMapCheckbox',
   'spinnerSpeedCheckbox',
-  'openDotCheckbox'
+  'openDotCheckbox',
+  'hcKeysyCheckbox'
 ];
 
 function parseSettingsString(settingsString) {
@@ -1210,6 +1217,7 @@ function populateSSettings(s) {
   $('#openMapCheckbox').prop('checked', s.openMap);
   $('#spinnerSpeedCheckbox').prop('checked', s.increaseSpinnerSpeed);
   $('#openDotCheckbox').prop('checked', s.openDot);
+  $('#hcKeysyCheckbox').prop('checked', s.openDot);
 
   const $excludedChecksParent = $('#baseExcludedChecksListbox');
   s.excludedChecks.forEach((checkNumId) => {
