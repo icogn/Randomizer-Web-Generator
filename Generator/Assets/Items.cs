@@ -802,6 +802,7 @@ namespace TPRandomizer
             foreach (Item startingItem in parseSetting.startingItems)
             {
                 RandomizedImportantItems.Remove(startingItem);
+                Randomizer.Items.alwaysItems.Remove(startingItem);
             }
 
             // If a poe is excluded, we still want to place the item that was in its location.

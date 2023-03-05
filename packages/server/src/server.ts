@@ -307,6 +307,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
         [69, 'Iron Boots'],
         [67, 'Progressive Bow'],
         [81, 'Bomb Bag and Bombs'],
+        [79, 'Giant Bomb Bag'],
         [49, 'Zora Armor'],
         [68, 'Progressive Clawshot'],
         [68, 'Progressive Clawshot'],

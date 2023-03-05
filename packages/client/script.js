@@ -1217,7 +1217,7 @@ function populateSSettings(s) {
   $('#openMapCheckbox').prop('checked', s.openMap);
   $('#spinnerSpeedCheckbox').prop('checked', s.increaseSpinnerSpeed);
   $('#openDotCheckbox').prop('checked', s.openDot);
-  $('#hcKeysyCheckbox').prop('checked', s.openDot);
+  $('#hcKeysyCheckbox').prop('checked', s.hcKeysy);
 
   const $excludedChecksParent = $('#baseExcludedChecksListbox');
   s.excludedChecks.forEach((checkNumId) => {
