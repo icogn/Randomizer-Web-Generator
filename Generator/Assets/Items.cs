@@ -437,6 +437,7 @@ namespace TPRandomizer
                 Item.Filled_Bomb_Bag,
                 Item.Filled_Bomb_Bag,
                 Item.Filled_Bomb_Bag,
+                Item.Giant_Bomb_Bag,
                 Item.Zora_Armor,
                 Item.Progressive_Clawshot,
                 Item.Progressive_Clawshot,
@@ -471,7 +472,6 @@ namespace TPRandomizer
                 Item.Magic_Armor,
                 Item.Ordon_Shield,
                 Item.Hylian_Shield,
-                Item.Giant_Bomb_Bag,
             };
 
         public readonly List<Item> goldenBugs =
