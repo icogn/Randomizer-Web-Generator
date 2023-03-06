@@ -471,6 +471,7 @@ namespace TPRandomizer
                 Item.Magic_Armor,
                 Item.Ordon_Shield,
                 Item.Hylian_Shield,
+                Item.Giant_Bomb_Bag,
             };
 
         public readonly List<Item> goldenBugs =
@@ -616,7 +617,6 @@ namespace TPRandomizer
                 Item.Orange_Rupee,
                 Item.Silver_Rupee,
                 Item.Silver_Rupee,
-                Item.Giant_Bomb_Bag,
                 Item.Sera_Bottle,
                 Item.Coro_Bottle,
                 Item.Jovani_Bottle,
@@ -802,7 +802,6 @@ namespace TPRandomizer
             foreach (Item startingItem in parseSetting.startingItems)
             {
                 RandomizedImportantItems.Remove(startingItem);
-                Randomizer.Items.alwaysItems.Remove(startingItem);
             }
 
             // If a poe is excluded, we still want to place the item that was in its location.
