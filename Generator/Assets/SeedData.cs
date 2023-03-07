@@ -286,8 +286,7 @@ namespace TPRandomizer.Assets
                 randomizerSettings.lanayruTwilightCleared,
                 randomizerSettings.skipMinorCutscenes,
                 randomizerSettings.skipMdh,
-                randomizerSettings.openMap, //map bits
-                randomizerSettings.magicArmorCost
+                randomizerSettings.openMap //map bits
             };
             bool[] oneTimePatchSettingsArray =
             {
@@ -297,6 +296,7 @@ namespace TPRandomizer.Assets
                 fcSettings.disableEnemyBgm,
                 randomizerSettings.instantText,
                 randomizerSettings.increaseSpinnerSpeed,
+                 randomizerSettings.magicArmorCost,
             };
             int patchOptions = 0x0;
             int bitwiseOperator = 0;
