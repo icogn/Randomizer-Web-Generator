@@ -296,7 +296,7 @@ namespace TPRandomizer.Assets
                 fcSettings.disableEnemyBgm,
                 randomizerSettings.instantText,
                 randomizerSettings.increaseSpinnerSpeed,
-                 randomizerSettings.magicArmorCost,
+                randomizerSettings.magicArmorCost,
             };
             int patchOptions = 0x0;
             int bitwiseOperator = 0;
