@@ -362,6 +362,9 @@ document
   document
   .getElementById('hcKeysyCheckbox')
   .addEventListener('click', setSettingsString);
+  document
+  .getElementById('magicArmorCostCheckbox')
+  .addEventListener('click', setSettingsString);
 document
   .getElementById('importSettingsStringButton')
   .addEventListener('click', importSettingsString);

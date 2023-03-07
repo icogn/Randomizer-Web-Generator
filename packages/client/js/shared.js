@@ -377,6 +377,8 @@
       { id: 'spinnerSpeedCheckbox' },
       { id: 'openDotCheckbox' },
       { id: 'hcKeysyCheckbox' },
+      { id: 'magicArmorCostCheckbox' },
+
     ].map(({ id, bitLength }) => {
       const val = getVal(id);
       if (bitLength) {
