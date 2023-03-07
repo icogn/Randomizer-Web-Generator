@@ -501,6 +501,9 @@ function setSettingsString() {
   settingsStringRaw[41] = document.getElementById(
     'hcKeysyCheckbox'
   ).checked;
+  settingsStringRaw[42] = document.getElementById(
+    'magicArmorCostCheckbox'
+  ).checked;
   // document.getElementById('settingsStringTextbox').value =
   document.getElementById('settingsStringTextbox').textContent =
     getSettingsString(settingsStringRaw);
@@ -663,7 +666,8 @@ var arrayOfSettingsItems = [
   'openMapCheckbox',
   'spinnerSpeedCheckbox',
   'openDotCheckbox',
-  'hcKeysyCheckbox'
+  'hcKeysyCheckbox',
+  'magicArmorCostCheckbox'
 ];
 
 function parseSettingsString(settingsString) {
@@ -1218,6 +1222,7 @@ function populateSSettings(s) {
   $('#spinnerSpeedCheckbox').prop('checked', s.increaseSpinnerSpeed);
   $('#openDotCheckbox').prop('checked', s.openDot);
   $('#hcKeysyCheckbox').prop('checked', s.hcKeysy);
+  $('#magicArmorCostCheckbox').prop('checked', s.magicArmorCost);
 
   const $excludedChecksParent = $('#baseExcludedChecksListbox');
   s.excludedChecks.forEach((checkNumId) => {

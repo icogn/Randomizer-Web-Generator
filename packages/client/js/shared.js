@@ -765,6 +765,7 @@
     processBasic({ id: 'increaseSpinnerSpeed' });
     processBasic({ id: 'openDot' });
     processBasic({ id: 'hcKeysy' });
+    processBasic({ id: 'magicAmorCost' });
     }
 
     res.startingItems = processor.nextEolList(9);

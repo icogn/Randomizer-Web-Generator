@@ -336,6 +336,7 @@ namespace TPRandomizer
             result.Add("increaseSpinnerSpeed", sSettings.increaseSpinnerSpeed);
             result.Add("openDot",sSettings.openDot);
             result.Add("hcKeysy",sSettings.hcKeysy);
+            result.Add("magicArmorCost",sSettings.magicArmorCost);
 
             result.Add("startingItems", sSettings.startingItems);
             result.Add("excludedChecks", sSettings.excludedChecks);
