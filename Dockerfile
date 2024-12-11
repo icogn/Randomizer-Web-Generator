@@ -162,7 +162,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
 	&& yarn --version \
 	&& rm -rf /tmp/*
 ################################################################################
-# End installation of copied lines to install Node
+# End copied lines to install Node
 ################################################################################
 
 
