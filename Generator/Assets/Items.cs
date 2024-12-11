@@ -74,8 +74,8 @@ namespace TPRandomizer
         /*Piece_of_Heart_3?	=	0x38,*/
         /*Piece_of_Heart_4?	=	0x39,*/
         /*Piece_of_Heart_5?	=	0x3A,*/
-        /*sword?	=	0x3B,*/
-        /*?	=	0x3C,*/
+        Gerudo_Desert_Portal = 0x3B,
+        North_Faron_Portal = 0x3C,
         Coral_Earring = 0x3D,
         Hawkeye = 0x3E,
         Progressive_Sword = 0x3F,
@@ -93,20 +93,20 @@ namespace TPRandomizer
         Slingshot = 0x4B,
         Dominion_Rod_Uncharged = 0x4C,
 
-        /*?	=	0x4D,*/
-        /*?	=	0x4E,*/
+        Kakariko_Gorge_Portal = 0x4D,
+        Kakariko_Village_Portal = 0x4E,
         Giant_Bomb_Bag = 0x4F,
         Barnes_Bomb_Bag = 0x50,
         Filled_Bomb_Bag = 0x51,
+        Death_Mountain_Portal = 0x52,
+        Castle_Town_Portal = 0x53,
 
-        /*Giant_Bomb_Bag?	=	0x52,*/
-        /*?	=	0x53,*/
         /*unused*/
         Small_Quiver = 0x54,
         Big_Quiver = 0x55,
         Giant_Quiver = 0x56,
 
-        /*?	=	0x57,*/
+        Zoras_Domain_Portal = 0x57,
         Fishing_Rod_Lure = 0x58,
         Bow_Bombs = 0x59,
         Bow_Hawkeye = 0x5A,
@@ -163,7 +163,7 @@ namespace TPRandomizer
         Hyrule_Castle_Small_Key = 0x8D, /*custom*/
         Gerudo_Desert_Bulblin_Camp_Key = 0x8E, /*custom*/
 
-        /*unused 0x8F */
+        Lake_Hylia_Portal = 0x8F,
         Aurus_Memo = 0x90,
         Asheis_Sketch = 0x91,
         Forest_Temple_Big_Key = 0x92, /*custom*/
@@ -199,8 +199,8 @@ namespace TPRandomizer
         Palace_of_Twilight_Compass = 0xAC, /*custom*/
         Hyrule_Castle_Compass = 0xAD, /*custom*/
 
-        /*Unused	=	0xAE,*/
-        /*Unused	=	0xAF,*/
+        Mirror_Chamber_Portal = 0xAE,
+        Snowpeak_Portal = 0xAF,
         Ilias_Scent = 0xB0,
 
         /*Unused_Scent?	=	0xB1,*/
@@ -218,7 +218,7 @@ namespace TPRandomizer
         Palace_of_Twilight_Dungeon_Map = 0xBD,
         Hyrule_Castle_Dungeon_Map = 0xBE,
 
-        /*Bottle_Insides?	=	0xBF,*/
+        Sacred_Grove_Portal = 0xBF,
         Male_Beetle = 0xC0,
         Female_Beetle = 0xC1,
         Male_Butterfly = 0xC2,
@@ -260,7 +260,7 @@ namespace TPRandomizer
         Jump_Strike = 0xE6,
         Great_Spin = 0xE7,
 
-        /*?	=	0xE8,*/
+        Bridge_of_Eldin_Portal = 0xE8,
         Progressive_Sky_Book = 0xE9,
         Ancient_Sky_Book_Partly_Filled = 0xEA,
         Ancient_Sky_Book_Completed = 0xEB,
@@ -276,8 +276,7 @@ namespace TPRandomizer
         Snowpeak_Ruins_Ordon_Pumpkin = 0xF4,
         Snowpeak_Ruins_Ordon_Goat_Cheese = 0xF5,
         Snowpeak_Ruins_Bedroom_Key = 0xF6,
-
-        /*Shield?	=	0xF7,*/
+        Upper_Zoras_River_Portal = 0xF7,
         Got_Lantern_Back = 0xF8,
         Goron_Mines_Key_Shard = 0xF9,
         Goron_Mines_Key_Shard_Second = 0xFA,
@@ -290,19 +289,6 @@ namespace TPRandomizer
 
         Ordon_Portal,
         South_Faron_Portal,
-        North_Faron_Portal = 0x3C,
-        Kakariko_Gorge_Portal = 0x4D,
-        Kakariko_Village_Portal = 0x4E,
-        Death_Mountain_Portal = 0x52,
-        Castle_Town_Portal = 0x53,
-        Zoras_Domain_Portal = 0x57,
-        Lake_Hylia_Portal = 0x8F,
-        Gerudo_Desert_Portal = 0x3B,
-        Mirror_Chamber_Portal = 0xAE,
-        Snowpeak_Portal = 0xAF,
-        Sacred_Grove_Portal = 0xBF,
-        Bridge_of_Eldin_Portal = 0xE8,
-        Upper_Zoras_River_Portal = 0xF7,
 
         // Event items. These are not items that the player can "collect" but are used to specify major events that affect logical progression.
         Diababa_Defeated,

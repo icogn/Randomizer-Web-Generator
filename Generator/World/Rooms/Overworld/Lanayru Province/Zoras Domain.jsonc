@@ -20,8 +20,8 @@
 	  },
       {
         "ConnectedArea": "Upper Zoras River Izas House",
-        "Requirements": "(HasSword or ((CanDefeatShadowBeast and (Setting.transformAnywhere equals True)) or Item.Upper_Zoras_River_Portal)) and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "(HasSword or ((CanDefeatShadowBeast and (Setting.transformAnywhere equals True)) or Item.Upper_Zoras_River_Portal)) and CanCompleteLanayruTwilight"
+        "Requirements": "(HasSword or ((CanDefeatShadowBeast and (Setting.transformAnywhere equals True)) or Upper_Zoras_River_Portal)) and CanCompleteLanayruTwilight",
+        "GlitchedRequirements": "(HasSword or ((CanDefeatShadowBeast and (Setting.transformAnywhere equals True)) or Upper_Zoras_River_Portal)) and CanCompleteLanayruTwilight"
       }
     ],
     "Checks":
