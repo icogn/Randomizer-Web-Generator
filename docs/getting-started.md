@@ -184,4 +184,4 @@ It is based on Prettier, hence the name.
 
 If you need to deploy a production build to a public site, see [docker.md](./docker.md) for instructions.
 YOU DO NOT NEED DOCKER if you are only making changes for personal use or PRs with minor changes.
-Please see the [Running the server](#Running_the_server) section for instructions on running the site locally.
+Please see the [Running the server](#Running-the-server) section for instructions on running the site locally.
