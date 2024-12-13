@@ -1131,8 +1131,6 @@ namespace TPRandomizer.Hints
             switch (item)
             {
                 case Item.Foolish_Item:
-                case Item.Foolish_Item_2:
-                case Item.Foolish_Item_3:
                     return true;
                 default:
                     return false;
