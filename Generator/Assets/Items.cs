@@ -32,8 +32,8 @@ namespace TPRandomizer
         Seeds_50 = 0x12,
 
         Foolish_Item = 0x13, // Custom Item added for the Randomizer.
-        Foolish_Item_2 = 0x14, // Custom Item added for the Randomizer.
-        Foolish_Item_3 = 0x15, // Custom Item added for the Randomizer.
+        Ordon_Portal = 0x14, // Custom Item added for the Randomizer.
+        South_Faron_Portal = 0x15, // Custom Item added for the Randomizer.
         Water_Bombs_5 = 0x16,
         Water_Bombs_10 = 0x17,
         Water_Bombs_15 = 0x18,
@@ -286,9 +286,6 @@ namespace TPRandomizer
         Goron_Mines_Big_Key = 0xFD,
         Coro_Key = 0xFE,
         Gives_Vanilla = 0xFF,
-
-        Ordon_Portal,
-        South_Faron_Portal,
 
         // Event items. These are not items that the player can "collect" but are used to specify major events that affect logical progression.
         Diababa_Defeated,
