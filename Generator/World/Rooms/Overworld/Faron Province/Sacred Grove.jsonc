@@ -14,10 +14,9 @@
         "GlitchedRequirements": "(CanDefeatSkullKid and Shadow_Crystal) or (Setting.skipGroveEntrance equals True)"
       },
       {
-        "ConnectedArea": "North Faron Woods",
+        "ConnectedArea": "North Faron Lost Woods Entrance",
         "Requirements": "true",
         "GlitchedRequirements": "true"
-        // In North Faron Woods, when you are near the Lost Woods entrance, you can save-warp to the main part of North Faron Woods.
       }
     ],
     "Checks": 
