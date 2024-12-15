@@ -2166,7 +2166,7 @@ namespace TPRandomizer
 
                     if (LogicFunctions.CanUse(Item.Mirror_Chamber_Portal))
                     {
-                        portalRooms.Add(Randomizer.Rooms.RoomDict["Mirror Chamber Portal"]);
+                        portalRooms.Add(Randomizer.Rooms.RoomDict["Mirror Chamber Upper"]);
                     }
                 }
             }
