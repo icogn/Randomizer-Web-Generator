@@ -2121,6 +2121,10 @@ namespace TPRandomizer
                     {
                         portalRooms.Add(Randomizer.Rooms.RoomDict["Death Mountain Volcano"]);
                     }
+                    if (LogicFunctions.CanUse(Item.Bridge_of_Eldin_Portal))
+                    {
+                        portalRooms.Add(Randomizer.Rooms.RoomDict["Eldin Field"]);
+                    }
                 }
 
                 if (LogicFunctions.CanUnlockLanayruMap())
@@ -2136,6 +2140,10 @@ namespace TPRandomizer
                     if (LogicFunctions.CanUse(Item.Zoras_Domain_Portal))
                     {
                         portalRooms.Add(Randomizer.Rooms.RoomDict["Zoras Domain Throne Room"]);
+                    }
+                    if (LogicFunctions.CanUse(Item.Upper_Zoras_River_Portal))
+                    {
+                        portalRooms.Add(Randomizer.Rooms.RoomDict["Upper Zoras River"]);
                     }
                 }
 
