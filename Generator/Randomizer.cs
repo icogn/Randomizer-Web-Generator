@@ -2151,7 +2151,14 @@ namespace TPRandomizer
                 {
                     if (LogicFunctions.CanUse(Item.Gerudo_Desert_Portal))
                     {
-                        portalRooms.Add(Randomizer.Rooms.RoomDict["Gerudo Desert"]);
+                        portalRooms.Add(
+                            Randomizer.Rooms.RoomDict["Gerudo Desert Cave of Ordeals Plateau"]
+                        );
+                    }
+
+                    if (LogicFunctions.CanUse(Item.Mirror_Chamber_Portal))
+                    {
+                        portalRooms.Add(Randomizer.Rooms.RoomDict["Mirror Chamber Portal"]);
                     }
                 }
             }
