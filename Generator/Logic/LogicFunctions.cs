@@ -1681,6 +1681,10 @@ namespace TPRandomizer
                     canCompleteGoronMines()
                     && Randomizer.Rooms.RoomDict["Kakariko Malo Mart"].ReachedByPlaythrough
                 )
+                || (
+                    Randomizer.Rooms.RoomDict["Castle Town Goron Shop Balcony"].ReachedByPlaythrough
+                    && !Randomizer.SSettings.shuffleShopItems
+                )
             );
         }
 
