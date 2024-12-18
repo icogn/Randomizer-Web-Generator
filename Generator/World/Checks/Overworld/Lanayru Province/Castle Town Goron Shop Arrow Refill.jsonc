@@ -2,5 +2,5 @@
     "requirements": "true",
     "glitchedRequirements": "true",
     "checkCategory": ["Overworld", "Castle Town", "Shop"],
-    "itemId": "Red_Potion_Shop"
+    "itemId": "Arrows_30"
 }

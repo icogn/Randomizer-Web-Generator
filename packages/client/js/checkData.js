@@ -267,6 +267,10 @@ window.tpr.checkData = {
     category: ['Overworld', 'Bulblin Camp', 'Small Key', 'DZX'],
     itemId: 'Gerudo_Desert_Bulblin_Camp_Key',
   },
+  'Castle Town Goron Shop Arrow Refill': {
+    category: ['Overworld', 'Castle Town', 'ARC', 'Shop'],
+    itemId: 'Arrows_30',
+  },
   'Castle Town Goron Shop Hylian Shield': {
     category: ['Overworld', 'Castle Town', 'ARC', 'Shop'],
     itemId: 'Hylian_Shield',
