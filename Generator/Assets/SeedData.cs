@@ -1405,7 +1405,7 @@ namespace TPRandomizer.Assets
                     (byte)ReplacementType.Instruction,
                     (int)StageIDs.Castle_Town_Shops,
                     4
-                ), // Check for custom event flag before proceeding in conversation
+                ), // Set custom event flag before proceeding in conversation
                 new ARCReplacement(
                     "4DFC",
                     "03300000",
@@ -1413,7 +1413,7 @@ namespace TPRandomizer.Assets
                     (byte)ReplacementType.Instruction,
                     (int)StageIDs.Castle_Town_Shops,
                     4
-                ), // Check for custom event flag before proceeding in conversation
+                ), // Set custom event flag before proceeding in conversation
 
                 // Castle Town Goron Shop Lantern Oil FLW patches
                 new ARCReplacement(
@@ -1439,15 +1439,15 @@ namespace TPRandomizer.Assets
                     (byte)ReplacementType.Instruction,
                     (int)StageIDs.Castle_Town_Shops,
                     4
-                ), // Check for custom event flag before proceeding in conversation
+                ), // Set custom event flag before proceeding in conversation
                 new ARCReplacement(
-                    "4DFC",
+                    "4BFC",
                     "03310000",
                     (byte)FileDirectory.Message,
                     (byte)ReplacementType.Instruction,
                     (int)StageIDs.Castle_Town_Shops,
                     4
-                ), // Check for custom event flag before proceeding in conversation
+                ), // Set custom event flag before proceeding in conversation
 
                 // Castle Town Goron Shop Arrow Refill FLW patches
                 new ARCReplacement(
@@ -1455,7 +1455,7 @@ namespace TPRandomizer.Assets
                     "00010332",
                     (byte)FileDirectory.Message,
                     (byte)ReplacementType.Instruction,
-                    (int)StageIDs.Castle_Town_Shops,
+                    (int)StageIDs.Castle_Town,
                     4
                 ), // Check for custom flag before allowing player to buy CT arrows
                  new ARCReplacement(
@@ -1463,15 +1463,15 @@ namespace TPRandomizer.Assets
                     "00060028",
                     (byte)FileDirectory.Message,
                     (byte)ReplacementType.Instruction,
-                    (int)StageIDs.Castle_Town_Shops,
+                    (int)StageIDs.Castle_Town,
                     4
                 ), // Instead of checking for the bow, only check for rupees
                  new ARCReplacement(
-                    "4E58",
+                    "4E5A",
                     "00010332",
                     (byte)FileDirectory.Message,
                     (byte)ReplacementType.Instruction,
-                    (int)StageIDs.Castle_Town_Shops,
+                    (int)StageIDs.Castle_Town,
                     4
                 ), // Instead of checking for ammo, just re-check the flag
                 new ARCReplacement(
@@ -1479,15 +1479,15 @@ namespace TPRandomizer.Assets
                     "03000887",
                     (byte)FileDirectory.Message,
                     (byte)ReplacementType.Instruction,
-                    (int)StageIDs.Castle_Town_Shops,
+                    (int)StageIDs.Castle_Town,
                     4
                 ), // Check for custom event flag before proceeding in conversation
                 new ARCReplacement(
-                    "4BF4",
+                    "4FF4",
                     "03320000",
                     (byte)FileDirectory.Message,
                     (byte)ReplacementType.Instruction,
-                    (int)StageIDs.Castle_Town_Shops,
+                    (int)StageIDs.Castle_Town,
                     4
                 ), // Check for custom event flag before proceeding in conversation
             ];
