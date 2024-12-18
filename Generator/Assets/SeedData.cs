@@ -1258,6 +1258,8 @@ namespace TPRandomizer.Assets
                     6
                 ), // Remove Argorok actor in west city, which breaks the bridge
 
+                // Castle Town Hylian Shield Goron FLW patches
+
                  new ARCReplacement(
                     "50C2",
                     "0001032F",
@@ -1292,6 +1294,40 @@ namespace TPRandomizer.Assets
                     (int)StageIDs.Castle_Town_Shops,
                     4
                 ), // Set the new flag for buying the shield
+
+                // Castle Town Red Potion Goron FLW patches
+                new ARCReplacement(
+                    "4E0A",
+                    "00010330",
+                    (byte)FileDirectory.Message,
+                    (byte)ReplacementType.Instruction,
+                    (int)StageIDs.Castle_Town_Shops,
+                    4
+                ), // Check for custom flag before allowing player to buy CT red potion
+                new ARCReplacement(
+                    "4D52",
+                    "00060028",
+                    (byte)FileDirectory.Message,
+                    (byte)ReplacementType.Instruction,
+                    (int)StageIDs.Castle_Town_Shops,
+                    4
+                ), // Instead of checking for an empty bottle, only check for rupees
+                new ARCReplacement(
+                    "4DF8",
+                    "03000851",
+                    (byte)FileDirectory.Message,
+                    (byte)ReplacementType.Instruction,
+                    (int)StageIDs.Castle_Town_Shops,
+                    4
+                ), // Check for custom event flag before proceeding in conversation
+                new ARCReplacement(
+                    "4DFC",
+                    "03300000",
+                    (byte)FileDirectory.Message,
+                    (byte)ReplacementType.Instruction,
+                    (int)StageIDs.Castle_Town_Shops,
+                    4
+                ), // Check for custom event flag before proceeding in conversation
 
                  new ARCReplacement(
                     "5418",
