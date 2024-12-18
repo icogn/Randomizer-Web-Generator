@@ -529,6 +529,7 @@ namespace TPRandomizer
                 "Gerudo Desert Portal",
                 "Mirror Chamber Portal",
                 "Castle Town Goron Shop Red Potion",
+                "Castle Town Goron Shop Lantern Oil",
                 // Add new check names right above this line. The name should
                 // match exactly with the json filename in the "Checks"
                 // directory.

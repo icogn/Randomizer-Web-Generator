@@ -271,6 +271,10 @@ window.tpr.checkData = {
     category: ['Overworld', 'Castle Town', 'ARC', 'Shop'],
     itemId: 'Hylian_Shield',
   },
+  'Castle Town Goron Shop Lantern Oil': {
+    category: ['Overworld', 'Castle Town', 'ARC', 'Shop'],
+    itemId: 'Lantern_Oil_Shop',
+  },
   'Castle Town Goron Shop Red Potion': {
     category: ['Overworld', 'Castle Town', 'ARC', 'Shop'],
     itemId: 'Red_Potion',
