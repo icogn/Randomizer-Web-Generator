@@ -1200,6 +1200,10 @@ window.tpr.checkData = {
     category: ['Overworld', 'Chest', 'Kakariko Village', 'ARC'],
     itemId: 'Red_Rupee',
   },
+  'Kakariko Village Bell Rupee': {
+    category: ['Overworld','Kakariko Village', 'ARC'],
+    itemId: 'Silver_Rupee',
+  },
   'Kakariko Village Bomb Rock Spire Heart Piece': {
     category: ['Overworld', 'Chest', 'Kakariko Village', 'DZX'],
     itemId: 'Piece_of_Heart',

@@ -444,6 +444,7 @@
       { id: 'todFieldset', bitLength: 3 },
       { id: 'hintDistributionFieldset', bitLength: 5 },
       { id: 'randomizeStartingPointCheckbox' },
+      { id: 'rupeeCheckbox' },
     ].map(({ id, bitLength }) => {
       const val = getVal(id);
       if (bitLength) {
@@ -912,10 +913,12 @@
     if (version >= 6)
     {
       processBasic({id: 'randomizeStartingPoint'});
+      processBasic({id: 'rupees'});
     }
     else
     {
       res.randomizeStartingPoint = false; // Vanilla
+      res.rupees = false; // Vanilla
     }
 
     res.startingItems = processor.nextEolList(9);

@@ -311,6 +311,9 @@ document
 document
   .getElementById('hiddenSkillsCheckbox')
   .addEventListener('click', setSettingsString);
+document
+  .getElementById('rupeeCheckbox')
+  .addEventListener('click', setSettingsString);
 document.getElementById('itemScarcityFieldset').onchange = setSettingsString;
 document.getElementById('damageMagFieldset').onchange = setSettingsString;
 document.getElementById('todFieldset').onchange = setSettingsString;
@@ -1242,6 +1245,7 @@ function populateSSettings(s) {
   $('#todFieldset').val(s.startingToD);
   $('#hintDistributionFieldset').val(s.hintDistribution);
   $('#randomizeStartingPointCheckbox').prop('checked', s.randomizeStartingPoint);
+  $('#rupeeCheckbox').prop('checked', s.rupees);
 
   const $excludedChecksParent = $('#baseExcludedChecksListbox');
   s.excludedChecks.forEach((checkNumId) => {
