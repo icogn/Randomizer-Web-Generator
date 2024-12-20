@@ -1682,8 +1682,9 @@ namespace TPRandomizer
                     && Randomizer.Rooms.RoomDict["Kakariko Malo Mart"].ReachedByPlaythrough
                 )
                 || (
-                    Randomizer.Rooms.RoomDict["Castle Town Goron Shop Balcony"].ReachedByPlaythrough
-                    && !Randomizer.SSettings.shuffleShopItems
+                    Randomizer.Rooms.RoomDict[
+                        "Castle Town Goron House Balcony"
+                    ].ReachedByPlaythrough && !Randomizer.SSettings.shuffleShopItems
                 )
             );
         }
