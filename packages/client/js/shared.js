@@ -856,24 +856,29 @@
         openGrove: 1,
         open: 2,
       };
+      const swordReq = {
+        none: 0,
+        masterSword: 3,
+      };
 
       if (version >= 1) {
         // `totEntrance` changed from a checkbox to a select
         processBasic({ id: 'totEntrance', bitLength: 2 });
         if (res.totEntrance === totEntrance.open) {
           res.skipGroveEntrance = true;
-          res.totEntrance = 0; // No sword requirement
+          res.totEntrance = swordReq.none;
         } else if (res.totEntrance === totEntrance.openGrove) {
           res.skipGroveEntrance = true;
-          res.totEntrance = 3; // Master Sword
+          res.totEntrance = swordReq.masterSword;
         } else {
           // Closed
           res.skipGroveEntrance = false;
-          res.totEntrance = 3; // Master Sword
+          res.totEntrance = swordReq.masterSword;
         }
       } else {
         const totOpen = processor.nextBoolean();
-        res.totEntrance = totOpen ? totEntrance.open : totEntrance.closed;
+        res.skipGroveEntrance = totOpen;
+        res.totEntrance = totOpen ? swordReq.none : swordReq.masterSword;
       }
     }
 
