@@ -846,25 +846,7 @@
     processBasic({ id: 'skipLakebedEntrance' });
     processBasic({ id: 'skipArbitersEntrance' });
     processBasic({ id: 'skipSnowpeakEntrance' });
-    if ((version >= 1) && version < 6) {
-      const totEntrance = {
-        closed: 0,
-        openGrove: 1,
-        open: 2,
-      };
-      // `totEntrance` changed from a checkbox to a select
-      processBasic({ id: 'totEntrance', bitLength: 2 });
-      if (res.totEntrance != totEntrance.closed)
-      {
-        res.skipGroveEntrance = true;
-      }
-      else
-      {
-        res.skipGroveEntrance = false;
-      }
-      res.totEntrance = 3; // Master Sword
-    }
-    else if (version >= 6) {
+    if (version >= 6) {
       // `totEntrance` changed uses and meaning and was split into two different settings
       processBasic({ id: 'skipGroveEntrance' });
       processBasic({ id: 'totEntrance', bitLength: 3 });
@@ -874,9 +856,32 @@
         openGrove: 1,
         open: 2,
       };
-      const totOpen = processor.nextBoolean();
-      res.totEntrance = totOpen ? totEntrance.open : totEntrance.closed;
+      const swordReq = {
+        none: 0,
+        masterSword: 3,
+      };
+
+      if (version >= 1) {
+        // `totEntrance` changed from a checkbox to a select
+        processBasic({ id: 'totEntrance', bitLength: 2 });
+        if (res.totEntrance === totEntrance.open) {
+          res.skipGroveEntrance = true;
+          res.totEntrance = swordReq.none;
+        } else if (res.totEntrance === totEntrance.openGrove) {
+          res.skipGroveEntrance = true;
+          res.totEntrance = swordReq.masterSword;
+        } else {
+          // Closed
+          res.skipGroveEntrance = false;
+          res.totEntrance = swordReq.masterSword;
+        }
+      } else {
+        const totOpen = processor.nextBoolean();
+        res.skipGroveEntrance = totOpen;
+        res.totEntrance = totOpen ? swordReq.none : swordReq.masterSword;
+      }
     }
+
     processBasic({ id: 'skipCityEntrance' });
     if (version >= 1) {
       // `instantText' added as an option in version 1
@@ -910,13 +915,10 @@
       res.startingToD = 1; // Noon, which the previous rando versions used.
       res.hintDistribution = 0; // None
     }
-    if (version >= 6)
-    {
-      processBasic({id: 'randomizeStartingPoint'});
-      processBasic({id: 'rupees'});
-    }
-    else
-    {
+    if (version >= 6) {
+      processBasic({ id: 'randomizeStartingPoint' });
+      processBasic({ id: 'rupees' });
+    } else {
       res.randomizeStartingPoint = false; // Vanilla
       res.rupees = false; // Vanilla
     }
@@ -1170,8 +1172,12 @@
 
     const colors = window.MidnaHairColors.calcBaseAndGlow(sixCharHex);
 
-    ret += window.tpr.shared.hexStrToBits(colors.midnaHairBaseLightWorldInactive);
-    ret += window.tpr.shared.hexStrToBits(colors.midnaHairBaseDarkWorldInactive);
+    ret += window.tpr.shared.hexStrToBits(
+      colors.midnaHairBaseLightWorldInactive
+    );
+    ret += window.tpr.shared.hexStrToBits(
+      colors.midnaHairBaseDarkWorldInactive
+    );
     ret += window.tpr.shared.hexStrToBits(colors.midnaHairBaseAnyWorldActive);
     ret += window.tpr.shared.hexStrToBits(colors.midnaHairGlowAnyWorldInactive);
     ret += window.tpr.shared.hexStrToBits(sixCharHex); // midnaHairGlowLightWorldActive
@@ -1195,7 +1201,9 @@
     const colors = window.MidnaHairColors.calcTips(sixCharHex);
 
     ret += window.tpr.shared.hexStrToBits(sixCharHex); // midnaHairTipsLightWorldInactive
-    ret += window.tpr.shared.hexStrToBits(colors.midnaHairTipsDarkWorldAnyActive);
+    ret += window.tpr.shared.hexStrToBits(
+      colors.midnaHairTipsDarkWorldAnyActive
+    );
     ret += window.tpr.shared.hexStrToBits(colors.midnaHairTipsLightWorldActive);
 
     return ret;
@@ -1238,7 +1246,8 @@
 
     let values = [];
 
-    let selectedRegion = (typeof version === 'string') ? version : window.tpr.shared.selectedRegion;
+    let selectedRegion =
+      typeof version === 'string' ? version : window.tpr.shared.selectedRegion;
     if (Region.hasOwnProperty(selectedRegion)) {
       values.push({
         type: RawSettingType.xBitNum,
@@ -1414,12 +1423,13 @@
       })
       .then((response) => response.json());
     if (cb) {
-      promise.then(({ error, data }) => {
-        cb(error, data);
-      })
-      .catch((err) => {
-        cb(err);
-      });
+      promise
+        .then(({ error, data }) => {
+          cb(error, data);
+        })
+        .catch((err) => {
+          cb(err);
+        });
     } else {
       return promise.then(({ error, data }) => {
         if (error) {
