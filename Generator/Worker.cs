@@ -54,6 +54,11 @@ namespace TPRandomizer
                         JsonConvert.SerializeObject(CheckIdClass.GetNameToIdNumDictionary())
                     );
                     break;
+                case "print_plando_check_ids":
+                    Console.WriteLine(
+                        JsonConvert.SerializeObject(CheckIdClass.GetPlandoNameToIdNumDict())
+                    );
+                    break;
                 case "print_seed_gen_results":
                 {
                     // seedId

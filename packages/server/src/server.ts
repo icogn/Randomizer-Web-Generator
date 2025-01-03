@@ -215,7 +215,7 @@ app.post('/api/final', function (req: express.Request, res: express.Response) {
     ['generate_final_output2', id, fileCreationSettings],
     (error, buffer) => {
       if (error) {
-        console.error(buffer?.toString("utf-8"));
+        console.error(buffer?.toString('utf-8'));
         res.status(500).send({ error });
         return;
       }
@@ -383,7 +383,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
         [0xaf, 'Snowpeak Portal'],
         [0xbf, 'Sacred Grove Portal'],
         [0xe8, 'Bridge of Eldin Portal'],
-        [0xf7, 'Upper Zoras River Portal']
+        [0xf7, 'Upper Zoras River Portal'],
       ];
 
       const startingItemsEls = startingItems.map((item) => {
@@ -541,6 +541,10 @@ app.get('/', (req: express.Request, res: express.Response) => {
         [0x13, 'Foolish_Item'],
       ];
 
+      const plandoChecksList = JSON.parse(
+        callGenerator('print_plando_check_ids')
+      );
+
       const plandoItemEls = plandoItems
         .map((item) => {
           if (item[0] === 'FirstCategory') {
@@ -552,9 +556,9 @@ app.get('/', (req: express.Request, res: express.Response) => {
           }
         })
         .join('\n');
-      const plandoChecksEls = Object.keys(excludedChecksList)
+      const plandoChecksEls = Object.keys(plandoChecksList)
         .map((key) => {
-          return `<option value='${excludedChecksList[key]}'>${key}</option>`;
+          return `<option value='${plandoChecksList[key]}'>${key}</option>`;
         })
         .join('\n');
       const plandoStr = `<select id=plandoCheckSelect>${plandoChecksEls}</select>
