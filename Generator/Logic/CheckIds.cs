@@ -29,6 +29,7 @@ namespace TPRandomizer
                 "Kakariko Gorge Portal",
                 "Kakariko Village Portal",
                 "Lake Hylia Portal",
+                "Mirror Chamber Portal",
                 "North Faron Portal",
                 "Sacred Grove Portal",
                 "South Faron Portal",
