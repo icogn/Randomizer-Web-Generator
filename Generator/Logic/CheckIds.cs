@@ -10,6 +10,20 @@ namespace TPRandomizer
         private static Dictionary<string, string> nameToId;
         private static Dictionary<int, string> idNumToName;
 
+        private static HashSet<string> hideFromUiCheckNames =
+            new()
+            {
+                "Forest Temple Diababa",
+                "Goron Mines Fyrus",
+                "Lakebed Temple Morpheel",
+                "Arbiters Grounds Stallord",
+                "Snowpeak Ruins Blizzeta",
+                "Temple of Time Armogohma",
+                "City in The Sky Argorok",
+                "Palace of Twilight Zant",
+                "Hyrule Castle Ganondorf",
+            };
+
         static CheckIdClass()
         {
             // The names in this list match exactly with the json files in the
@@ -617,13 +631,17 @@ namespace TPRandomizer
             return GetCheckIdNum(checkName) >= 0;
         }
 
-        public static SortedDictionary<string, int> GetNameToIdNumDictionary()
+        // Used to get the list of checks to use in the settings UI for
+        // Exclusions and Plando checks. Filters out ones that should not show
+        // up such as "Forest Temple Diababa"
+        public static SortedDictionary<string, int> GetUiNameToIdNumDict()
         {
             SortedDictionary<string, int> nameToIdNum = new();
 
             foreach (KeyValuePair<string, string> item in nameToId)
             {
-                nameToIdNum[item.Key] = IdToNum(item.Value);
+                if (!hideFromUiCheckNames.Contains(item.Key))
+                    nameToIdNum[item.Key] = IdToNum(item.Value);
             }
 
             return nameToIdNum;
