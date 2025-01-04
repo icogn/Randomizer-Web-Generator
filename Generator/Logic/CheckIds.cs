@@ -22,6 +22,19 @@ namespace TPRandomizer
                 "City in The Sky Argorok",
                 "Palace of Twilight Zant",
                 "Hyrule Castle Ganondorf",
+                "Bridge of Eldin Portal",
+                "Castle Town Portal",
+                "Death Mountain Portal",
+                "Gerudo Desert Portal",
+                "Kakariko Gorge Portal",
+                "Kakariko Village Portal",
+                "Lake Hylia Portal",
+                "North Faron Portal",
+                "Sacred Grove Portal",
+                "South Faron Portal",
+                "Snowpeak Portal",
+                "Upper Zoras River Portal",
+                "Zoras Domain Portal"
             };
 
         static CheckIdClass()
