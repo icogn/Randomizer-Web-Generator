@@ -287,7 +287,9 @@ app.get('/', (req: express.Request, res: express.Response) => {
         `<input id="userJwtInput" type="hidden" value="${req.newUserJwt}">`
       );
 
-      const excludedChecksList = JSON.parse(callGenerator('print_check_ids'));
+      const excludedChecksList = JSON.parse(
+        callGenerator('print_check_ids_for_ui')
+      );
       const arr = Object.keys(excludedChecksList).map((key) => {
         return `<li><label><input type='checkbox' data-checkId='${excludedChecksList[key]}'>${key}</label></li>`;
       });
@@ -541,10 +543,6 @@ app.get('/', (req: express.Request, res: express.Response) => {
         [0x13, 'Foolish_Item'],
       ];
 
-      const plandoChecksList = JSON.parse(
-        callGenerator('print_plando_check_ids')
-      );
-
       const plandoItemEls = plandoItems
         .map((item) => {
           if (item[0] === 'FirstCategory') {
@@ -556,9 +554,9 @@ app.get('/', (req: express.Request, res: express.Response) => {
           }
         })
         .join('\n');
-      const plandoChecksEls = Object.keys(plandoChecksList)
+      const plandoChecksEls = Object.keys(excludedChecksList)
         .map((key) => {
-          return `<option value='${plandoChecksList[key]}'>${key}</option>`;
+          return `<option value='${excludedChecksList[key]}'>${key}</option>`;
         })
         .join('\n');
       const plandoStr = `<select id=plandoCheckSelect>${plandoChecksEls}</select>

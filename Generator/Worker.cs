@@ -49,14 +49,9 @@ namespace TPRandomizer
                     // seedId, fileCreationSettingsString
                     Randomizer.GenerateFinalOutput2(args[1], args[2]);
                     break;
-                case "print_check_ids":
+                case "print_check_ids_for_ui":
                     Console.WriteLine(
-                        JsonConvert.SerializeObject(CheckIdClass.GetNameToIdNumDictionary())
-                    );
-                    break;
-                case "print_plando_check_ids":
-                    Console.WriteLine(
-                        JsonConvert.SerializeObject(CheckIdClass.GetPlandoNameToIdNumDict())
+                        JsonConvert.SerializeObject(CheckIdClass.GetUiNameToIdNumDict())
                     );
                     break;
                 case "print_seed_gen_results":

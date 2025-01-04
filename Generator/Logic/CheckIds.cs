@@ -10,7 +10,7 @@ namespace TPRandomizer
         private static Dictionary<string, string> nameToId;
         private static Dictionary<int, string> idNumToName;
 
-        private static HashSet<string> invalidPlandoCheckNames =
+        private static HashSet<string> hideFromUiCheckNames =
             new()
             {
                 "Forest Temple Diababa",
@@ -631,25 +631,16 @@ namespace TPRandomizer
             return GetCheckIdNum(checkName) >= 0;
         }
 
-        public static SortedDictionary<string, int> GetNameToIdNumDictionary()
+        // Used to get the list of checks to use in the settings UI for
+        // Exclusions and Plando checks. Filters out ones that should not show
+        // up such as "Forest Temple Diababa"
+        public static SortedDictionary<string, int> GetUiNameToIdNumDict()
         {
             SortedDictionary<string, int> nameToIdNum = new();
 
             foreach (KeyValuePair<string, string> item in nameToId)
             {
-                nameToIdNum[item.Key] = IdToNum(item.Value);
-            }
-
-            return nameToIdNum;
-        }
-
-        public static SortedDictionary<string, int> GetPlandoNameToIdNumDict()
-        {
-            SortedDictionary<string, int> nameToIdNum = new();
-
-            foreach (KeyValuePair<string, string> item in nameToId)
-            {
-                if (!invalidPlandoCheckNames.Contains(item.Key))
+                if (!hideFromUiCheckNames.Contains(item.Key))
                     nameToIdNum[item.Key] = IdToNum(item.Value);
             }
 
