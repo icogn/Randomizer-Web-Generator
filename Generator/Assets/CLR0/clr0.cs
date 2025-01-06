@@ -222,6 +222,17 @@ namespace TPRandomizer.Assets.CLR0
                 )
             );
 
+            // Spinner
+            cmprFileModifications.Add(
+                new(
+                    fcSettings.spinnerColor,
+                    "al_sp.bmd",
+                    "al_SP",
+                    (byte)ArchiveIndex.ALink,
+                    BMDDirectory.BMDR
+                )
+            );
+
             entries.Add(fcSettings.hTunicHatColor);
             entries.Add(fcSettings.hTunicBodyColor);
             entries.Add(fcSettings.hTunicSkirtColor);
@@ -233,6 +244,7 @@ namespace TPRandomizer.Assets.CLR0
             entries.Add(fcSettings.msBladeColor);
             entries.Add(fcSettings.boomerangColor);
             entries.Add(fcSettings.ironsColor);
+            entries.Add(fcSettings.spinnerColor);
             entries.Add(fcSettings.lanternGlowColor);
             entries.Add(fcSettings.heartColor);
             entries.Add(fcSettings.aBtnColor);
