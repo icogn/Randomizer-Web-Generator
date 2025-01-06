@@ -582,9 +582,9 @@ namespace TPRandomizer
                 }
 
                 // Generate seed .bin file
-                fileDefs.Add(
+                /*fileDefs.Add(
                     GenGciFileDef(id, seedGenResults, fcSettings, fcSettings.gameRegion, false)
-                );
+                );*/
 
                 if (!seedGenResults.isRaceSeed && fcSettings.includeSpoilerLog)
                 {
@@ -613,7 +613,12 @@ namespace TPRandomizer
             }
 
             // Generate patch file
-            fileDefs.Add(GenPatchFileDef(id, seedGenResults, fcSettings, fcSettings.gameRegion));
+            if (fcSettings.patchFileOnly)
+            {
+                fileDefs.Add(
+                    GenPatchFileDef(id, seedGenResults, fcSettings, fcSettings.gameRegion)
+                );
+            }
 
             PrintFileDefs(id, seedGenResults, fcSettings, fileDefs);
 
