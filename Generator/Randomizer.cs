@@ -1224,7 +1224,6 @@ namespace TPRandomizer
                         foreach (Room graphRoom in currentPlaythroughGraph)
                         {
                             graphRoom.Visited = true;
-                            //Console.WriteLine("Currently Exploring: " + graphRoom.RoomName);
                             for (int i = 0; i < graphRoom.Checks.Count; i++)
                             {
                                 // Create reference to the dictionary entry of the check whose logic we are evaluating
@@ -2044,6 +2043,7 @@ namespace TPRandomizer
                             && (currentItem == Item.Progressive_Fused_Shadow)
                         )
                         {
+                            numAttemptsRemaining--;
                             continue;
                         }
 
@@ -2053,6 +2053,7 @@ namespace TPRandomizer
                             && (currentItem == Item.Progressive_Mirror_Shard)
                         )
                         {
+                            numAttemptsRemaining--;
                             continue;
                         }
                     }
