@@ -678,7 +678,7 @@ app.get('/s/:id', (req: express.Request, res: express.Response) => {
             // Error occurred while trying to parse seedGenResults in Generator
             // code. This is likely caused by the seedGenResults being in an old
             // unsupported format. More likely to see this in a dev branch where
-            // the above version check passes.
+            // the version check above passes.
             console.error(e);
             msg = msg.replace('<!-- INPUT_JSON_DATA -->', '');
             msg = msg.replace('<!-- REQUESTER_HASH -->', '');
