@@ -632,7 +632,6 @@ app.get('/s/:id', (req: express.Request, res: express.Response) => {
           const json = JSON.parse(
             fs.readFileSync(filePath, { encoding: 'utf8' })
           );
-          console.log(json);
 
           // Check if unsupported version.
           try {
