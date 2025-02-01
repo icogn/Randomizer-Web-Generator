@@ -1894,7 +1894,7 @@
     <comment></comment>
   </data>
   <data name="self-hinter.coro" xml:space="preserve">
-    <value>Je vends {item} pour {price}, mais aussi #(red)faire le plein d&apos;huile#(white) pour #(purple)20 rubis#(white). Alors?</value>
+    <value>Je vends {item} pour {price}, mais aussi #(red)le plein d&apos;huile#(white) pour #(purple)20 rubis#(white). Alors?</value>
     <comment></comment>
   </data>
   <data name="self-hinter.fishing-bottle" xml:space="preserve">
