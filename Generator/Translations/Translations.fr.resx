@@ -1942,11 +1942,11 @@
     <comment></comment>
   </data>
   <data name="shop.confirmation" xml:space="preserve">
-    <value>{item} {verb(name:costs)} {price}, tu {noun(name:the-article)} veux?</value>
+    <value>{item(capitalize)} {verb(name:costs)} {price}, tu {noun(name:the-article)} veux?</value>
     <comment></comment>
   </data>
   <data name="shop.confirmation$sera" xml:space="preserve">
-    <value>{item} {verb(name:costs)} {price}.\nTu {noun(name:the-article)} veux?</value>
+    <value>{item(capitalize)} {verb(name:costs)} {price}.\nTu {noun(name:the-article)} veux?</value>
     <comment></comment>
   </data>
   <data name="shop.no" xml:space="preserve">

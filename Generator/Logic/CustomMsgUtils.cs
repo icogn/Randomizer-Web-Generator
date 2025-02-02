@@ -44,6 +44,8 @@ namespace TPRandomizer
         Castle_Town_Malo_Mart_Magic_Armor_Slot,
         Castle_Town_Malo_Mart_Magic_Armor_Bought,
         Castle_Town_Malo_Mart_Magic_Armor_Sold_Out,
+        Castle_Town_Goron_Red_Potion_Confirmation_Initial,
+        Castle_Town_Goron_Red_Potion_Confirmation_Second,
         Agithas_Castle_Sign,
         Jovani_House_Sign,
         Custom_Sign_Ordon,
@@ -260,6 +262,14 @@ namespace TPRandomizer
                 {
                     MsgEntryId.Castle_Town_Malo_Mart_Magic_Armor_Sold_Out,
                     new(StageIDs.Castle_Town_Shops, 0, 0x130)
+                },
+                {
+                    MsgEntryId.Castle_Town_Goron_Red_Potion_Confirmation_Initial,
+                    new(StageIDs.Castle_Town_Shops, 4, 0x3BF)
+                },
+                {
+                    MsgEntryId.Castle_Town_Goron_Red_Potion_Confirmation_Second,
+                    new(StageIDs.Castle_Town_Shops, 4, 0x3C1)
                 },
                 { MsgEntryId.Agithas_Castle_Sign, new(StageIDs.Castle_Town, 3, 0x456) },
                 { MsgEntryId.Jovani_House_Sign, new(StageIDs.Castle_Town, 3, 0x457) },

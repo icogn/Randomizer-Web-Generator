@@ -1850,11 +1850,15 @@
     <comment></comment>
   </data>
   <data name="shop.confirmation" xml:space="preserve">
-    <value>{item} will cost you {price}. Want {noun(name:shop-it)} or not?</value>
+    <value>{item(capitalize)} will cost you {price}. Want {noun(name:shop-it)} or not?</value>
     <comment>From kak malo mart.</comment>
   </data>
+  <data name="shop.confirmation$ct-small-gorons" xml:space="preserve">
+    <value>You can buy {item} for only {price}!</value>
+    <comment></comment>
+  </data>
   <data name="shop.confirmation$sera" xml:space="preserve">
-    <value>{item} {verb(name:is)} {price}. Do you want to buy {noun(name:shop-it)}, m&apos;dear?</value>
+    <value>{item(capitalize)} {verb(name:is)} {price}. Do you want to buy {noun(name:shop-it)}, m&apos;dear?</value>
     <comment></comment>
   </data>
   <data name="shop.price" xml:space="preserve">
