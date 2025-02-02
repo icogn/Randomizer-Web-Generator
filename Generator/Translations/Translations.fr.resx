@@ -1918,7 +1918,7 @@
     <comment></comment>
   </data>
   <data name="shop.cant-afford" xml:space="preserve">
-    <value>{item} {verb(name:costs)} {price}. Si tu {noun(name:the-article)} veux, il faut {noun2} payer.</value>
+    <value>{item(capitalize)} {verb(name:costs)} {price}. Si tu {noun(name:the-article)} veux, il faut {noun2} payer.</value>
     <comment>From Sera Slingshot</comment>
   </data>
   <data name="shop.cant-afford$barnes-bomb-bag" xml:space="preserve">
@@ -1926,7 +1926,7 @@
     <comment></comment>
   </data>
   <data name="shop.cant-afford$kak-malo" xml:space="preserve">
-    <value>{item} {verb(name:costs)} {price}, et tu n&apos;as pas {price2}...</value>
+    <value>{item(capitalize)} {verb(name:costs)} {price}, et tu n&apos;as pas {price2}...</value>
     <comment></comment>
   </data>
   <data name="shop.coming-soon" xml:space="preserve">

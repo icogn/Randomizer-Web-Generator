@@ -1826,15 +1826,19 @@
     <comment></comment>
   </data>
   <data name="shop.cant-afford" xml:space="preserve">
-    <value>{item} {verb(name:is)} {price}. If you want {noun(name:shop-it)}, bring some money with you, all right, m&apos;dear?</value>
+    <value>{item(capitalize)} {verb(name:is)} {price}. If you want {noun(name:shop-it)}, bring some money with you, all right, m&apos;dear?</value>
     <comment>From Sera Slingshot</comment>
   </data>
   <data name="shop.cant-afford$barnes-bomb-bag" xml:space="preserve">
     <value>$(skip-msg)uses default text!</value>
     <comment></comment>
   </data>
+  <data name="shop.cant-afford$ct-small-gorons" xml:space="preserve">
+    <value>You do not have enough Rupees, Brother...</value>
+    <comment></comment>
+  </data>
   <data name="shop.cant-afford$kak-malo" xml:space="preserve">
-    <value>{item} {verb(name:costs)} {price}... but there are people with enough Rupees, and then there&apos;s you.</value>
+    <value>{item(capitalize)} {verb(name:costs)} {price}... but there are people with enough Rupees, and then there&apos;s you.</value>
     <comment></comment>
   </data>
   <data name="shop.coming-soon" xml:space="preserve">

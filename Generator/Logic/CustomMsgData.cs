@@ -597,15 +597,39 @@ namespace TPRandomizer
             Res.Result result = Res.Msg("shop.cant-afford", new() { { "context", context } });
 
             Item item = HintUtils.getCheckContents(checkName);
-            if (HintUtils.IsTrapItem(item))
-                item = defaultItem;
+            bool useDefArticle = true;
+            bool capitalize = false;
+
+            // Check if "item" slot says it should be capitalized.
+            if (result.slotMeta.TryGetValue("item", out Dictionary<string, string> baseItemMeta))
+            {
+                if (baseItemMeta.TryGetValue("capitalize", out string capitalizeVal))
+                {
+                    if (capitalizeVal == "true")
+                        capitalize = true;
+                }
+            }
+
+            // If we store info about the check in selfHinterChecks, use that.
+            if (selfHinterChecks.TryGetValue(checkName, out SelfHinterData selfHinterData))
+            {
+                item = selfHinterData.itemToHint;
+                useDefArticle = selfHinterData.useDefArticle;
+            }
+            else
+            {
+                // Not in selfHinterData (for example, a normal item behind a
+                // shop counter)
+                if (HintUtils.IsTrapItem(item))
+                    item = defaultItem;
+            }
 
             string itemText = GenItemText3(
                 out Dictionary<string, string> itemMeta,
                 item,
                 CheckStatus.Unknown,
-                contextIn: "def",
-                capitalize: true,
+                contextIn: useDefArticle ? "def" : "indef",
+                capitalize: capitalize,
                 prefStartColor: CustomMessages.messageColorOrange
             );
 
@@ -1072,18 +1096,26 @@ namespace TPRandomizer
 
             // ----- Castle Town Gorons -----
 
+            uint ctGoronRedPotionPrice = 40;
             AddShopConfirmationMsg(
                 MsgEntryId.Castle_Town_Goron_Red_Potion_Confirmation_Initial,
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
-                40,
+                ctGoronRedPotionPrice,
                 "ct-small-gorons"
             );
             AddShopConfirmationMsg(
                 MsgEntryId.Castle_Town_Goron_Red_Potion_Confirmation_Second,
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
-                40,
+                ctGoronRedPotionPrice,
+                "ct-small-gorons"
+            );
+            AddShopCantAffordMsg(
+                MsgEntryId.Castle_Town_Goron_Red_Potion_Cant_Afford,
+                "Castle Town Goron Shop Red Potion",
+                Item.Red_Potion_Shop,
+                ctGoronRedPotionPrice,
                 "ct-small-gorons"
             );
 
