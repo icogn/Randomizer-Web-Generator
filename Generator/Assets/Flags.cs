@@ -401,6 +401,11 @@ namespace TPRandomizer.Assets
             { 0x15, 0xBF }, // statue placed in slot in room 1
         };
 
+        public static readonly byte[,] OpenForestRegionFlags = new byte[,]
+        {
+            { 0x2, 0x53 }, // Coro gate unlocked.
+        };
+
         /// <summary>
         /// summary text.
         /// </summary>
@@ -412,6 +417,7 @@ namespace TPRandomizer.Assets
                 { 2, EldinTwilightRegionFlags },
                 { 3, LanayruTwilightRegionFlags },
                 { 4, CutsceneRegionFlags },
+                { 5, OpenForestRegionFlags },
                 { 6, MDHRegionFlags },
                 { 7, SmallKeyRegionFlags },
                 { 8, BigKeyRegionFlags },
