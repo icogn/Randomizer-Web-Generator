@@ -1831,7 +1831,7 @@
   </data>
   <data name="shop.cant-afford$ct-small-gorons" xml:space="preserve">
     <value>You do not have enough Rupees, Brother...</value>
-    <comment></comment>
+    <comment>This is a copy of 0x3C4 for the red potion goron.</comment>
   </data>
   <data name="shop.cant-afford$kak-malo" xml:space="preserve">
     <value>{item(capitalize)} {verb(name:costs)} {price}... but there are people with enough Rupees, and then there&apos;s you.</value>
