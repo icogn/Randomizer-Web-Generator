@@ -226,7 +226,7 @@ namespace TPRandomizer
                     { "Barnes Bomb Bag", true },
                     { "Charlo Donation Blessing", false },
                     { "Fishing Hole Bottle", false },
-                    { "Coro Bottle", false }, // TODO: will this become a shop check?
+                    { "Coro Bottle", true },
                     { "Castle Town Goron Shop Red Potion", true },
                 };
             public List<HintSpot> hintSpots { get; private set; } = new();
@@ -787,33 +787,6 @@ namespace TPRandomizer
                     )
                 );
             }
-
-            if (selfHinterChecks.TryGetValue("Coro Bottle", out SelfHinterData coroData))
-            {
-                string itemText = GenItemText3(
-                    out _,
-                    coroData.itemToHint,
-                    CheckStatus.Unknown,
-                    coroData.useDefArticle ? "def" : "indef",
-                    prefStartColor: CustomMessages.messageColorRed
-                );
-
-                string priceText = GenShopPriceText(100);
-
-                Res.Result res = Res.Msg("self-hinter.coro", null);
-                // Note we need to add the "shopOption" as it is there normally
-                // and if we try to add the options in the text then the
-                // vertical alignment is low and looks off. We do not change the
-                // options text for any other shops, so it would require some
-                // research if if we wanted to change the "Buy an oil bottle".
-                string text =
-                    Res.LangSpecificNormalize(
-                        res.Substitute(new() { { "item", itemText }, { "price", priceText } })
-                    ) + CustomMessages.shopOption;
-                results.Add(
-                    CustomMsgUtils.GetEntry(MsgEntryId.Coro_Buy_Options_Confirmation, text)
-                );
-            }
         }
 
         private void GenShopEntries()
@@ -975,6 +948,20 @@ namespace TPRandomizer
                 Item.Slingshot,
                 30,
                 "sera"
+            );
+
+            // ----- Coro -----
+
+            // Note that the item text is orange because of this function.
+            // However having it be orange matches the other shop items and is
+            // easier to read since there is the red "refills" in the text also,
+            // so leaving it as orange intentionally.
+            AddShopConfirmationMsg(
+                MsgEntryId.Coro_Buy_Options_Confirmation,
+                "Coro Bottle",
+                Item.Coro_Bottle,
+                100,
+                "coro"
             );
 
             // ----- Kakariko Malo Mart -----
