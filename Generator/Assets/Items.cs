@@ -1106,16 +1106,6 @@ namespace TPRandomizer
                 }
             }
 
-            if (parseSetting.skipPrologue)
-            {
-                RemoveItem(Item.North_Faron_Woods_Gate_Key);
-            }
-
-            if (parseSetting.faronWoodsLogic == FaronWoodsLogic.Open)
-            {
-                RemoveItem(Item.Coro_Key);
-            }
-
             // Handle portals
             parseSetting.startingItems.Add(Item.Ordon_Portal);
             if (parseSetting.faronTwilightCleared)

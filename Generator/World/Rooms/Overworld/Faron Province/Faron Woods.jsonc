@@ -46,8 +46,8 @@
     [
       {
         "ConnectedArea": "South Faron Woods",
-        "Requirements": "Room.South_Faron_Woods or Shadow_Crystal or canClearForest or Coro_Key",
-        "GlitchedRequirements": "Room.South_Faron_Woods or Shadow_Crystal or canClearForestGlitched or Coro_Key" 
+        "Requirements": "Shadow_Crystal or Coro_Key",
+        "GlitchedRequirements": "Shadow_Crystal or Coro_Key" 
       },
       {
         "ConnectedArea": "Faron Woods Cave Southern Entrance",
