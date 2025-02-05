@@ -1829,11 +1829,7 @@
     <value>$(skip-msg)uses default text!</value>
     <comment></comment>
   </data>
-  <data name="shop.cant-afford$ct-goron-oil" xml:space="preserve">
-    <value>You do not have enough Rupees, Brother...</value>
-    <comment></comment>
-  </data>
-  <data name="shop.cant-afford$ct-goron-red-potion" xml:space="preserve">
+  <data name="shop.cant-afford$ct-small-gorons" xml:space="preserve">
     <value>You do not have enough Rupees, Brother...</value>
     <comment>This is a copy of 0x3C4 for the red potion goron.</comment>
   </data>

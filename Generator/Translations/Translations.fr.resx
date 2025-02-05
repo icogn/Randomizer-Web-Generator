@@ -1921,6 +1921,10 @@
     <value>Et alors, garçon?\nTu n&apos;as pas assez, apparemment...</value>
     <comment></comment>
   </data>
+  <data name="shop.cant-afford$ct-small-gorons" xml:space="preserve">
+    <value>Vous n&apos;avez pas assez de rrubis...</value>
+    <comment>This is a copy of 0x3C4 for the red potion goron.</comment>
+  </data>
   <data name="shop.cant-afford$kak-malo" xml:space="preserve">
     <value>{item(capitalize)} {verb(name:costs)} {price}, et tu n&apos;as pas {price2}...</value>
     <comment></comment>
@@ -1945,6 +1949,14 @@
     <value>Je vends {item} pour {price}, mais aussi #(red)le plein d&apos;huile#(white) pour #(purple)20 rubis#(white). Alors?</value>
     <comment></comment>
   </data>
+  <data name="shop.confirmation$ct-goron-oil-initial" xml:space="preserve">
+    <value>aa</value>
+    <comment></comment>
+  </data>
+  <data name="shop.confirmation$ct-goron-red-potion" xml:space="preserve">
+    <value>Si cela vous tente, je peux vous vendrre {item} pourr {price}!</value>
+    <comment></comment>
+  </data>
   <data name="shop.confirmation$sera" xml:space="preserve">
     <value>{item(capitalize)} {verb(name:costs)} {price}.\nTu {noun(name:the-article)} veux?</value>
     <comment></comment>
@@ -1955,6 +1967,10 @@
   </data>
   <data name="shop.price" xml:space="preserve">
     <value>{count} rubis</value>
+    <comment></comment>
+  </data>
+  <data name="shop.price$goron" xml:space="preserve">
+    <value>{count} rrubis</value>
     <comment></comment>
   </data>
   <data name="shop.slot" xml:space="preserve">

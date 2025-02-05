@@ -528,7 +528,8 @@ namespace TPRandomizer
             string checkName,
             Item defaultItem,
             uint price,
-            string context = null
+            string context = null,
+            Dictionary<string, string> priceContextMeta = null
         )
         {
             Res.Result result = Res.Msg("shop.confirmation", new() { { "context", context } });
@@ -573,7 +574,7 @@ namespace TPRandomizer
             string nounVal = GenNamedSlotVal(result, "noun", itemMeta);
 
             string verb = GenVerb(result, itemMeta);
-            string priceText = GenShopPriceText(price);
+            string priceText = GenShopPriceText(price, priceContextMeta: priceContextMeta);
 
             string text = result.Substitute(
                 new()
@@ -1085,6 +1086,7 @@ namespace TPRandomizer
             );
 
             // ----- Castle Town Gorons -----
+            Dictionary<string, string> goronPriceContextMeta = new() { { "goron", "true" } };
 
             uint ctGoronRedPotionPrice = 40;
             AddShopConfirmationMsg(
@@ -1092,77 +1094,84 @@ namespace TPRandomizer
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
                 ctGoronRedPotionPrice,
-                "ct-goron-red-potion"
+                "ct-goron-red-potion",
+                priceContextMeta: goronPriceContextMeta
             );
             AddShopConfirmationMsg(
                 MsgEntryId.Castle_Town_Goron_Red_Potion_Confirmation_Second,
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
                 ctGoronRedPotionPrice,
-                "ct-goron-red-potion"
+                "ct-goron-red-potion",
+                priceContextMeta: goronPriceContextMeta
             );
             AddShopCantAffordMsg(
                 MsgEntryId.Castle_Town_Goron_Red_Potion_Cant_Afford,
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
                 ctGoronRedPotionPrice,
-                "ct-goron-red-potion"
+                "ct-small-gorons"
             );
 
-            uint ctGoronLanternOilPrice = 30;
-            AddShopConfirmationMsg(
-                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Initial,
-                "Castle Town Goron Shop Lantern Oil",
-                Item.Lantern_Oil_Shop,
-                ctGoronLanternOilPrice,
-                "ct-goron-oil-initial"
-            );
-            AddShopConfirmationMsg(
-                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Second,
-                "Castle Town Goron Shop Lantern Oil",
-                Item.Lantern_Oil_Shop,
-                ctGoronLanternOilPrice,
-                "ct-goron-oil-later"
-            );
-            AddShopCantAffordMsg(
-                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Cant_Afford,
-                "Castle Town Goron Shop Lantern Oil",
-                Item.Lantern_Oil_Shop,
-                ctGoronLanternOilPrice,
-                "ct-goron-oil"
-            );
+            // uint ctGoronLanternOilPrice = 30;
+            // AddShopConfirmationMsg(
+            //     MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Initial,
+            //     "Castle Town Goron Shop Lantern Oil",
+            //     Item.Lantern_Oil_Shop,
+            //     ctGoronLanternOilPrice,
+            //     "ct-goron-oil-initial",
+            // priceContextMeta: goronPriceContextMeta
+            // );
+            // AddShopConfirmationMsg(
+            //     MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Second,
+            //     "Castle Town Goron Shop Lantern Oil",
+            //     Item.Lantern_Oil_Shop,
+            //     ctGoronLanternOilPrice,
+            // "ct-goron-oil-later",
+            // priceContextMeta: goronPriceContextMeta
+            // );
+            // AddShopCantAffordMsg(
+            //     MsgEntryId.Castle_Town_Goron_Lantern_Oil_Cant_Afford,
+            //     "Castle Town Goron Shop Lantern Oil",
+            //     Item.Lantern_Oil_Shop,
+            //     ctGoronLanternOilPrice,
+            //     "ct-small-gorons"
+            // );
 
-            uint ctGoronArrowsPrice = 40;
-            AddShopConfirmationMsg(
-                MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Initial,
-                "Castle Town Goron Shop Arrow Refill",
-                Item.Arrows_30,
-                ctGoronArrowsPrice,
-                "ct-goron-arrows"
-            );
-            AddShopConfirmationMsg(
-                MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Second,
-                "Castle Town Goron Shop Arrow Refill",
-                Item.Arrows_30,
-                ctGoronArrowsPrice,
-                "ct-goron-arrows"
-            );
+            // uint ctGoronArrowsPrice = 40;
+            // AddShopConfirmationMsg(
+            //     MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Initial,
+            //     "Castle Town Goron Shop Arrow Refill",
+            //     Item.Arrows_30,
+            //     ctGoronArrowsPrice,
+            // priceContextMeta: goronPriceContextMeta
+            // );
+            // AddShopConfirmationMsg(
+            //     MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Second,
+            //     "Castle Town Goron Shop Arrow Refill",
+            //     Item.Arrows_30,
+            //     ctGoronArrowsPrice,
+            // "ct-goron-arrows,
+            // priceContextMeta: goronPriceContextMeta"
+            // );
 
-            uint ctGoronShieldPrice = 210;
-            AddShopConfirmationMsg(
-                MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Intitial,
-                "Castle Town Goron Shop Hylian Shield",
-                Item.Hylian_Shield,
-                ctGoronShieldPrice,
-                "ct-goron-shield-initial"
-            );
-            AddShopConfirmationMsg(
-                MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Second,
-                "Castle Town Goron Shop Hylian Shield",
-                Item.Hylian_Shield,
-                ctGoronShieldPrice,
-                "ct-goron-shield-later"
-            );
+            // uint ctGoronShieldPrice = 210;
+            // AddShopConfirmationMsg(
+            //     MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Intitial,
+            //     "Castle Town Goron Shop Hylian Shield",
+            //     Item.Hylian_Shield,
+            //     ctGoronShieldPrice,
+            // "ct-goron-shield-initial",
+            // priceContextMeta: goronPriceContextMeta
+            // );
+            // AddShopConfirmationMsg(
+            //     MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Second,
+            //     "Castle Town Goron Shop Hylian Shield",
+            //     Item.Hylian_Shield,
+            //     ctGoronShieldPrice,
+            //     "ct-goron-shield-later,
+            // priceContextMeta: goronPriceContextMeta"
+            // );
 
             // ----- Barnes -----
 
@@ -1566,16 +1575,21 @@ namespace TPRandomizer
             return "item." + ((byte)item).ToString("x2") + "-" + item.ToString().ToLowerInvariant();
         }
 
-        private string GenShopPriceText(uint amount, bool includeColor = true)
+        private string GenShopPriceText(
+            uint amount,
+            bool includeColor = true,
+            Dictionary<string, string> priceContextMeta = null
+        )
         {
             string result = "";
             if (includeColor)
                 result += CustomMessages.messageColorPurple;
 
-            string shopText = Res.SimpleMsg(
-                "shop.price",
-                new() { { "count", amount.ToString(CultureInfo.InvariantCulture) } }
-            );
+            Dictionary<string, string> interpolation =
+                new() { { "count", amount.ToString(CultureInfo.InvariantCulture) } };
+
+            string shopText = Res.Msg("shop.price", interpolation, priceContextMeta)
+                .Substitute(interpolation);
             result += shopText;
 
             if (includeColor)
