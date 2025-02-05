@@ -1877,6 +1877,14 @@
     <value>You can buy {item} for only {price}!</value>
     <comment></comment>
   </data>
+  <data name="shop.confirmation$ct-goron-shield-initial" xml:space="preserve">
+    <value>Anyway... Would you want {item} for {price}?</value>
+    <comment></comment>
+  </data>
+  <data name="shop.confirmation$ct-goron-shield-later" xml:space="preserve">
+    <value>Would you want {item} for {price}?</value>
+    <comment></comment>
+  </data>
   <data name="shop.confirmation$sera" xml:space="preserve">
     <value>{item(capitalize)} {verb(name:is)} {price}. Do you want to buy {noun(name:shop-it)}, m&apos;dear?</value>
     <comment></comment>

@@ -1148,6 +1148,22 @@ namespace TPRandomizer
                 "ct-goron-arrows"
             );
 
+            uint ctGoronShieldPrice = 210;
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Intitial,
+                "Castle Town Goron Shop Hylian Shield",
+                Item.Hylian_Shield,
+                ctGoronShieldPrice,
+                "ct-goron-shield-initial"
+            );
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Second,
+                "Castle Town Goron Shop Hylian Shield",
+                Item.Hylian_Shield,
+                ctGoronShieldPrice,
+                "ct-goron-shield-later"
+            );
+
             // ----- Barnes -----
 
             if (selfHinterChecks.TryGetValue("Barnes Bomb Bag", out SelfHinterData barnesData))
