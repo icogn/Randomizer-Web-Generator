@@ -1132,6 +1132,22 @@ namespace TPRandomizer
                 "ct-goron-oil"
             );
 
+            uint ctGoronArrowsPrice = 40;
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Initial,
+                "Castle Town Goron Shop Arrow Refill",
+                Item.Arrows_30,
+                ctGoronArrowsPrice,
+                "ct-goron-arrows"
+            );
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Second,
+                "Castle Town Goron Shop Arrow Refill",
+                Item.Arrows_30,
+                ctGoronArrowsPrice,
+                "ct-goron-arrows"
+            );
+
             // ----- Barnes -----
 
             if (selfHinterChecks.TryGetValue("Barnes Bomb Bag", out SelfHinterData barnesData))

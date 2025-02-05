@@ -1861,6 +1861,10 @@
     <value>Right now we have {item} for {price} and oil #(red)refills#(white) for #(purple)20 Rupees#(white)!</value>
     <comment>Adjusted msg slightly so we don&apos;t have to deal with &quot;a&quot; 10-Rupee item or &quot;an&quot; 11-Rupee item. Also slightly shorter msg length. Only &quot;refills&quot; is red (not &quot;oil refills&quot;) to make the first item text easier to read, and it matchees with the &quot;Buy a refill&quot; part. Vanilla text leaves out &quot;oil&quot; entirely because oil is mentioned earlier in the text.</comment>
   </data>
+  <data name="shop.confirmation$ct-goron-arrows" xml:space="preserve">
+    <value>So... Would you want to buy {item} for {price}?</value>
+    <comment></comment>
+  </data>
   <data name="shop.confirmation$ct-goron-oil-initial" xml:space="preserve">
     <value>So, Brother, would you buy {item} from me for {price}?</value>
     <comment></comment>

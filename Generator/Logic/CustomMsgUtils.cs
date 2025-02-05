@@ -50,6 +50,8 @@ namespace TPRandomizer
         Castle_Town_Goron_Lantern_Oil_Confirmation_Initial,
         Castle_Town_Goron_Lantern_Oil_Confirmation_Second,
         Castle_Town_Goron_Lantern_Oil_Cant_Afford,
+        Castle_Town_Goron_Arrows_Confirmation_Initial,
+        Castle_Town_Goron_Arrows_Confirmation_Second,
         Agithas_Castle_Sign,
         Jovani_House_Sign,
         Custom_Sign_Ordon,
@@ -290,6 +292,14 @@ namespace TPRandomizer
                 {
                     MsgEntryId.Castle_Town_Goron_Lantern_Oil_Cant_Afford,
                     new(StageIDs.Castle_Town_Shops, 4, 0x3AC)
+                },
+                {
+                    MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Initial,
+                    new(StageIDs.Castle_Town, 0, 0x3D8)
+                },
+                {
+                    MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Second,
+                    new(StageIDs.Castle_Town, 0, 0x3DB)
                 },
                 { MsgEntryId.Agithas_Castle_Sign, new(StageIDs.Castle_Town, 3, 0x456) },
                 { MsgEntryId.Jovani_House_Sign, new(StageIDs.Castle_Town, 3, 0x457) },
