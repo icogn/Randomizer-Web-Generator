@@ -1829,7 +1829,11 @@
     <value>$(skip-msg)uses default text!</value>
     <comment></comment>
   </data>
-  <data name="shop.cant-afford$ct-small-gorons" xml:space="preserve">
+  <data name="shop.cant-afford$ct-goron-oil" xml:space="preserve">
+    <value>You do not have enough Rupees, Brother...</value>
+    <comment></comment>
+  </data>
+  <data name="shop.cant-afford$ct-goron-red-potion" xml:space="preserve">
     <value>You do not have enough Rupees, Brother...</value>
     <comment>This is a copy of 0x3C4 for the red potion goron.</comment>
   </data>
@@ -1857,7 +1861,15 @@
     <value>Right now we have {item} for {price} and oil #(red)refills#(white) for #(purple)20 Rupees#(white)!</value>
     <comment>Adjusted msg slightly so we don&apos;t have to deal with &quot;a&quot; 10-Rupee item or &quot;an&quot; 11-Rupee item. Also slightly shorter msg length. Only &quot;refills&quot; is red (not &quot;oil refills&quot;) to make the first item text easier to read, and it matchees with the &quot;Buy a refill&quot; part. Vanilla text leaves out &quot;oil&quot; entirely because oil is mentioned earlier in the text.</comment>
   </data>
-  <data name="shop.confirmation$ct-small-gorons" xml:space="preserve">
+  <data name="shop.confirmation$ct-goron-oil-initial" xml:space="preserve">
+    <value>So, Brother, would you buy {item} from me for {price}?</value>
+    <comment></comment>
+  </data>
+  <data name="shop.confirmation$ct-goron-oil-later" xml:space="preserve">
+    <value>Just buy {item} from me for {price}, OK?</value>
+    <comment></comment>
+  </data>
+  <data name="shop.confirmation$ct-goron-red-potion" xml:space="preserve">
     <value>You can buy {item} for only {price}!</value>
     <comment></comment>
   </data>

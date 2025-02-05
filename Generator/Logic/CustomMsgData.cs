@@ -228,6 +228,9 @@ namespace TPRandomizer
                     { "Fishing Hole Bottle", false },
                     { "Coro Bottle", true },
                     { "Castle Town Goron Shop Red Potion", true },
+                    { "Castle Town Goron Shop Lantern Oil", true },
+                    { "Castle Town Goron Shop Arrow Refill", true },
+                    { "Castle Town Goron Shop Hylian Shield", true },
                 };
             public List<HintSpot> hintSpots { get; private set; } = new();
 
@@ -1089,21 +1092,44 @@ namespace TPRandomizer
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
                 ctGoronRedPotionPrice,
-                "ct-small-gorons"
+                "ct-goron-red-potion"
             );
             AddShopConfirmationMsg(
                 MsgEntryId.Castle_Town_Goron_Red_Potion_Confirmation_Second,
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
                 ctGoronRedPotionPrice,
-                "ct-small-gorons"
+                "ct-goron-red-potion"
             );
             AddShopCantAffordMsg(
                 MsgEntryId.Castle_Town_Goron_Red_Potion_Cant_Afford,
                 "Castle Town Goron Shop Red Potion",
                 Item.Red_Potion_Shop,
                 ctGoronRedPotionPrice,
-                "ct-small-gorons"
+                "ct-goron-red-potion"
+            );
+
+            uint ctGoronLanternOilPrice = 30;
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Initial,
+                "Castle Town Goron Shop Lantern Oil",
+                Item.Lantern_Oil_Shop,
+                ctGoronLanternOilPrice,
+                "ct-goron-oil-initial"
+            );
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Second,
+                "Castle Town Goron Shop Lantern Oil",
+                Item.Lantern_Oil_Shop,
+                ctGoronLanternOilPrice,
+                "ct-goron-oil-later"
+            );
+            AddShopCantAffordMsg(
+                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Cant_Afford,
+                "Castle Town Goron Shop Lantern Oil",
+                Item.Lantern_Oil_Shop,
+                ctGoronLanternOilPrice,
+                "ct-goron-oil"
             );
 
             // ----- Barnes -----
