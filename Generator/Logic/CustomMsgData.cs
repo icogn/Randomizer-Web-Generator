@@ -1079,6 +1079,8 @@ namespace TPRandomizer
             );
 
             // ----- Castle Town Gorons -----
+
+            // Gorons use "rrubis" istead of "rubis"
             Dictionary<string, string> goronPriceContextMeta = new() { { "goron", "true" } };
 
             uint ctGoronRedPotionPrice = 40;
@@ -1131,40 +1133,41 @@ namespace TPRandomizer
                 "ct-small-gorons"
             );
 
-            // uint ctGoronArrowsPrice = 40;
-            // AddShopConfirmationMsg(
-            //     MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Initial,
-            //     "Castle Town Goron Shop Arrow Refill",
-            //     Item.Arrows_30,
-            //     ctGoronArrowsPrice,
-            // priceContextMeta: goronPriceContextMeta
-            // );
-            // AddShopConfirmationMsg(
-            //     MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Second,
-            //     "Castle Town Goron Shop Arrow Refill",
-            //     Item.Arrows_30,
-            //     ctGoronArrowsPrice,
-            // "ct-goron-arrows,
-            // priceContextMeta: goronPriceContextMeta"
-            // );
+            uint ctGoronArrowsPrice = 40;
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Initial,
+                "Castle Town Goron Shop Arrow Refill",
+                Item.Arrows_30,
+                ctGoronArrowsPrice,
+                "ct-goron-arrows",
+                priceContextMeta: goronPriceContextMeta
+            );
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Arrows_Confirmation_Second,
+                "Castle Town Goron Shop Arrow Refill",
+                Item.Arrows_30,
+                ctGoronArrowsPrice,
+                "ct-goron-arrows",
+                priceContextMeta: goronPriceContextMeta
+            );
 
-            // uint ctGoronShieldPrice = 210;
-            // AddShopConfirmationMsg(
-            //     MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Intitial,
-            //     "Castle Town Goron Shop Hylian Shield",
-            //     Item.Hylian_Shield,
-            //     ctGoronShieldPrice,
-            // "ct-goron-shield-initial",
-            // priceContextMeta: goronPriceContextMeta
-            // );
-            // AddShopConfirmationMsg(
-            //     MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Second,
-            //     "Castle Town Goron Shop Hylian Shield",
-            //     Item.Hylian_Shield,
-            //     ctGoronShieldPrice,
-            //     "ct-goron-shield-later,
-            // priceContextMeta: goronPriceContextMeta"
-            // );
+            uint ctGoronShieldPrice = 210;
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Intitial,
+                "Castle Town Goron Shop Hylian Shield",
+                Item.Hylian_Shield,
+                ctGoronShieldPrice,
+                "ct-goron-shield-initial",
+                priceContextMeta: goronPriceContextMeta
+            );
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Shield_Confirmation_Second,
+                "Castle Town Goron Shop Hylian Shield",
+                Item.Hylian_Shield,
+                ctGoronShieldPrice,
+                "ct-goron-shield-later",
+                priceContextMeta: goronPriceContextMeta
+            );
 
             // ----- Barnes -----
 

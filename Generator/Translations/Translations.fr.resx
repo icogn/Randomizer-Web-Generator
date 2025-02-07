@@ -2093,6 +2093,10 @@
     <value>Je vends {item(shop-group-of)} pour {price}, mais aussi #(red)le plein d&apos;huile#(white) pour #(purple)20 rubis#(white). Alors?</value>
     <comment></comment>
   </data>
+  <data name="shop.confirmation$ct-goron-arrows" xml:space="preserve">
+    <value>Puisque c&apos;est toi, ce ne serra que {price} pourr {item(shop-group-of)}, ça te va?</value>
+    <comment></comment>
+  </data>
   <data name="shop.confirmation$ct-goron-oil-initial" xml:space="preserve">
     <value>Alorrs dites, vous voulez pas m&apos;acheter {item(shop-group-of)}? {noun(name:it-subject,capitalize)} {verb(name:costs)} {price}.</value>
     <comment>From feedback from Menou: removed &quot;de&quot; after m&apos;acheter since it caused lots of interpolation issues and the sentence works fine without it.</comment>
@@ -2104,6 +2108,14 @@
   <data name="shop.confirmation$ct-goron-red-potion" xml:space="preserve">
     <value>Si cela vous tente, je peux vous vendrre {item(shop-group-of)} pourr {price}!</value>
     <comment></comment>
+  </data>
+  <data name="shop.confirmation$ct-goron-shield-initial" xml:space="preserve">
+    <value>Mais au fait, nous vendons {item(shop-group-of)} pourr {price}. Ça t&apos;intérresse?</value>
+    <comment></comment>
+  </data>
+  <data name="shop.confirmation$ct-goron-shield-later" xml:space="preserve">
+    <value>{item(capitalize,shop-group-of)} {verb(name:costs)} {price}, tu {noun(name:the-article)} veux?</value>
+    <comment>Matches the base shop.confirmation, but putting here so this doesn&apos;t change if the fallback changes.</comment>
   </data>
   <data name="shop.confirmation$sera" xml:space="preserve">
     <value>{item(capitalize,shop-group-of)} {verb(name:costs)} {price}.\nTu {noun(name:the-article)} veux?</value>
