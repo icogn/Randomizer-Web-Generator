@@ -536,17 +536,6 @@ namespace TPRandomizer
 
             Item item = HintUtils.getCheckContents(checkName);
             bool useDefArticle = true;
-            bool capitalize = false;
-
-            // Check if "item" slot says it should be capitalized.
-            if (result.slotMeta.TryGetValue("item", out Dictionary<string, string> baseItemMeta))
-            {
-                if (baseItemMeta.TryGetValue("capitalize", out string capitalizeVal))
-                {
-                    if (capitalizeVal == "true")
-                        capitalize = true;
-                }
-            }
 
             // If we store info about the check in selfHinterChecks, use that.
             if (selfHinterChecks.TryGetValue(checkName, out SelfHinterData selfHinterData))
@@ -562,13 +551,16 @@ namespace TPRandomizer
                     item = defaultItem;
             }
 
+            // Try to get "item" slotMeta. Results in null if not there.
+            result.slotMeta.TryGetValue("item", out Dictionary<string, string> resultSlotMetaItem);
+
             string itemText = GenItemText3(
                 out Dictionary<string, string> itemMeta,
                 item,
                 CheckStatus.Unknown,
                 contextIn: useDefArticle ? "def" : "indef",
-                capitalize: capitalize,
-                prefStartColor: CustomMessages.messageColorOrange
+                prefStartColor: CustomMessages.messageColorOrange,
+                optionalContextMetaIn: resultSlotMetaItem
             );
 
             string nounVal = GenNamedSlotVal(result, "noun", itemMeta);
@@ -602,17 +594,6 @@ namespace TPRandomizer
 
             Item item = HintUtils.getCheckContents(checkName);
             bool useDefArticle = true;
-            bool capitalize = false;
-
-            // Check if "item" slot says it should be capitalized.
-            if (result.slotMeta.TryGetValue("item", out Dictionary<string, string> baseItemMeta))
-            {
-                if (baseItemMeta.TryGetValue("capitalize", out string capitalizeVal))
-                {
-                    if (capitalizeVal == "true")
-                        capitalize = true;
-                }
-            }
 
             // If we store info about the check in selfHinterChecks, use that.
             if (selfHinterChecks.TryGetValue(checkName, out SelfHinterData selfHinterData))
@@ -628,13 +609,16 @@ namespace TPRandomizer
                     item = defaultItem;
             }
 
+            // Try to get "item" slotMeta. Results in null if not there.
+            result.slotMeta.TryGetValue("item", out Dictionary<string, string> resultSlotMetaItem);
+
             string itemText = GenItemText3(
                 out Dictionary<string, string> itemMeta,
                 item,
                 CheckStatus.Unknown,
                 contextIn: useDefArticle ? "def" : "indef",
-                capitalize: capitalize,
-                prefStartColor: CustomMessages.messageColorOrange
+                prefStartColor: CustomMessages.messageColorOrange,
+                optionalContextMetaIn: resultSlotMetaItem
             );
 
             string verb = GenVerb(result, itemMeta);
@@ -742,15 +726,24 @@ namespace TPRandomizer
                 )
             )
             {
+                Res.Result result = Res.Msg("self-hinter.charlo");
+
+                // Try to get "item" slotMeta. Results in null if not there.
+                result.slotMeta.TryGetValue(
+                    "item",
+                    out Dictionary<string, string> resultSlotMetaItem
+                );
+
                 string itemText = GenItemText3(
                     out _,
                     charloData.itemToHint,
                     CheckStatus.Unknown,
-                    contextIn: charloData.useDefArticle ? "def" : "indef"
+                    contextIn: charloData.useDefArticle ? "def" : "indef",
+                    optionalContextMetaIn: resultSlotMetaItem
                 );
 
                 charloText = Res.LangSpecificNormalize(
-                    Res.SimpleMsg("self-hinter.charlo", new() { { "item", itemText } })
+                    result.Substitute(new() { { "item", itemText } })
                 );
             }
             else
@@ -1113,30 +1106,30 @@ namespace TPRandomizer
                 "ct-small-gorons"
             );
 
-            // uint ctGoronLanternOilPrice = 30;
-            // AddShopConfirmationMsg(
-            //     MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Initial,
-            //     "Castle Town Goron Shop Lantern Oil",
-            //     Item.Lantern_Oil_Shop,
-            //     ctGoronLanternOilPrice,
-            //     "ct-goron-oil-initial",
-            // priceContextMeta: goronPriceContextMeta
-            // );
-            // AddShopConfirmationMsg(
-            //     MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Second,
-            //     "Castle Town Goron Shop Lantern Oil",
-            //     Item.Lantern_Oil_Shop,
-            //     ctGoronLanternOilPrice,
-            // "ct-goron-oil-later",
-            // priceContextMeta: goronPriceContextMeta
-            // );
-            // AddShopCantAffordMsg(
-            //     MsgEntryId.Castle_Town_Goron_Lantern_Oil_Cant_Afford,
-            //     "Castle Town Goron Shop Lantern Oil",
-            //     Item.Lantern_Oil_Shop,
-            //     ctGoronLanternOilPrice,
-            //     "ct-small-gorons"
-            // );
+            uint ctGoronLanternOilPrice = 30;
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Initial,
+                "Castle Town Goron Shop Lantern Oil",
+                Item.Lantern_Oil_Shop,
+                ctGoronLanternOilPrice,
+                "ct-goron-oil-initial",
+                priceContextMeta: goronPriceContextMeta
+            );
+            AddShopConfirmationMsg(
+                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Confirmation_Second,
+                "Castle Town Goron Shop Lantern Oil",
+                Item.Lantern_Oil_Shop,
+                ctGoronLanternOilPrice,
+                "ct-goron-oil-later",
+                priceContextMeta: goronPriceContextMeta
+            );
+            AddShopCantAffordMsg(
+                MsgEntryId.Castle_Town_Goron_Lantern_Oil_Cant_Afford,
+                "Castle Town Goron Shop Lantern Oil",
+                Item.Lantern_Oil_Shop,
+                ctGoronLanternOilPrice,
+                "ct-small-gorons"
+            );
 
             // uint ctGoronArrowsPrice = 40;
             // AddShopConfirmationMsg(
@@ -1177,18 +1170,26 @@ namespace TPRandomizer
 
             if (selfHinterChecks.TryGetValue("Barnes Bomb Bag", out SelfHinterData barnesData))
             {
+                Res.Result result = Res.Msg("self-hinter.barnes-bomb-bag");
+
+                // Try to get "item" slotMeta. Results in null if not there.
+                result.slotMeta.TryGetValue(
+                    "item",
+                    out Dictionary<string, string> resultSlotMetaItem
+                );
+
                 string itemText = GenItemText3(
                     out _,
                     barnesData.itemToHint,
                     CheckStatus.Unknown,
                     barnesData.useDefArticle ? "def" : "indef",
-                    prefStartColor: CustomMessages.messageColorOrange
+                    prefStartColor: CustomMessages.messageColorOrange,
+                    optionalContextMetaIn: resultSlotMetaItem
                 );
 
                 string priceText = GenShopPriceText(120);
 
-                Res.Result res = Res.Msg("self-hinter.barnes-bomb-bag", null);
-                string text = res.Substitute(
+                string text = result.Substitute(
                     new() { { "item", itemText }, { "price", priceText } }
                 );
 
@@ -1321,8 +1322,9 @@ namespace TPRandomizer
                 }
             }
 
-            chunks.ToList().Sort(StringComparer.Ordinal);
-            return string.Join(',', chunks);
+            List<string> chunksList = chunks.ToList();
+            chunksList.Sort(StringComparer.Ordinal);
+            return string.Join(',', chunksList);
         }
 
         public static string GenItemText(
@@ -1424,7 +1426,8 @@ namespace TPRandomizer
             string prefEndColor = null,
             bool? capitalize = null,
             CheckStatusDisplay checkStatusDisplay = CheckStatusDisplay.None,
-            bool isLogicalItem = true
+            bool isLogicalItem = true,
+            Dictionary<string, string> optionalContextMetaIn = null
         )
         {
             string context = isShop ? "" : contextIn;
@@ -1443,9 +1446,32 @@ namespace TPRandomizer
                 checkStatusDisplay = CheckStatusDisplay.Automatic;
             }
 
+            Dictionary<string, string> optionalContextMetaA;
+            if (!ListUtils.isEmpty(optionalContextMetaIn))
+                optionalContextMetaA = new(optionalContextMetaIn);
+            else
+                optionalContextMetaA = new();
+
+            if (!StringUtils.isEmpty(context))
+            {
+                HashSet<string> contextParts = new(context.Split(","));
+                foreach (string contextPart in contextParts)
+                {
+                    optionalContextMetaA[contextPart] = "true";
+                }
+            }
+
+            // Swap to making all context optional so we only use def/indef if
+            // they are defined on the item. Otherwise we have to define
+            // "def,shop-group-of" and "indef,shop-group-of" instead of just
+            // "shop-group-of" for an item which does not use "def" or "indef"
+            // at all. If needed, we can probably make a paramter to this
+            // function be "requiredContext".
             Res.Result abc = Res.Msg(
                 GetItemResKey(item),
-                new() { { "context", context }, { "count", countStr } }
+                // new() { { "context", context }, { "count", countStr } },
+                new() { { "count", countStr } },
+                optionalContextMetaA
             );
             meta = abc.meta;
 
@@ -1546,25 +1572,25 @@ namespace TPRandomizer
                 itemSuffix += postItemText;
 
             string coloredItem;
-            Dictionary<string, string> interpolation = new();
+            Dictionary<string, string> optionalContextMeta = new();
             if (count != null)
-                interpolation.Add("count", countStr);
+                optionalContextMeta.Add("count", countStr);
 
             if (isShop)
             {
-                interpolation["cs"] = "";
-                interpolation["ce"] = "";
-                coloredItem = startColor + abc.Substitute(interpolation) + itemSuffix;
+                optionalContextMeta["cs"] = "";
+                optionalContextMeta["ce"] = "";
+                coloredItem = startColor + abc.Substitute(optionalContextMeta) + itemSuffix;
             }
             else if (abc.value.Contains("{cs}"))
             {
-                interpolation["cs"] = startColor;
-                interpolation["ce"] = itemSuffix;
-                coloredItem = abc.Substitute(interpolation);
+                optionalContextMeta["cs"] = startColor;
+                optionalContextMeta["ce"] = itemSuffix;
+                coloredItem = abc.Substitute(optionalContextMeta);
             }
             else
             {
-                coloredItem = startColor + abc.Substitute(interpolation) + itemSuffix;
+                coloredItem = startColor + abc.Substitute(optionalContextMeta) + itemSuffix;
             }
 
             return coloredItem;
