@@ -1313,7 +1313,6 @@ namespace TPRandomizer
 
                     if (byteVal == 0x1A)
                     {
-                        // determine how many chars to pull out.
                         byte escLength = (byte)input[index + 1];
                         // For Japanese only (since non-ja is always one byte per
                         // char), we may need to convert the string to bytes and

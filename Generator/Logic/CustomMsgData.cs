@@ -1472,7 +1472,6 @@ namespace TPRandomizer
             // function be "requiredContext".
             Res.Result abc = Res.Msg(
                 GetItemResKey(item),
-                // new() { { "context", context }, { "count", countStr } },
                 new() { { "count", countStr } },
                 optionalContextMetaA
             );
