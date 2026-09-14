@@ -1113,10 +1113,6 @@ namespace TPRandomizer.Hints
                 ltInfo.dependentCheckNames.Add("Catch A Greengill");
                 ltInfo.dependentCheckNames.Add("Catch A Hylian Loach");
             }
-            if (sSettings.shuffleLegendaryLoach)
-            {
-                uzrInfo.dependentCheckNames.Add("Catch The Legendary Hylian Loach");
-            }
         }
 
         public AreaCheckInfo GetAreaCheckInfoThrows(AreaId areaId)
