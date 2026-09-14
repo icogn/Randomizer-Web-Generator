@@ -47,4 +47,3 @@ yarn-error.log*
 
 # Ignore sln files that VSCode might auto-generate
 *.sln
-Generator/Assets/gci/Randomizer.eu.gci
