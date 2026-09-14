@@ -15,7 +15,7 @@
       {
         "ConnectedArea": "Lake Hylia Flight By Fowl",
         "Requirements": "CanCompleteLanayruTwilight and CanPay",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "ConnectedArea": "Gerudo Desert",
