@@ -14,7 +14,7 @@
       },
       {
         "ConnectedArea": "Lake Hylia Flight By Fowl",
-        "Requirements": "CanCompleteLanayruTwilight",
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
         "GlitchedRequirements": "CanCompleteLanayruTwilight"
       },
       {
