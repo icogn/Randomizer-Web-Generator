@@ -449,8 +449,12 @@ namespace TPRandomizer.Hints
                 newLogicalItems.Remove(Item.Magic_Armor);
 
                 if (
-                    !sSettings.bonksDoDamage
-                    || sSettings.damageMagnification != DamageMagnification.OHKO
+                    (
+                        !sSettings.bonksDoDamage
+                        || sSettings.damageMagnification != DamageMagnification.OHKO
+                    )
+                    && !sSettings.shuffleExteriorEntrances
+                    && !sSettings.shuffleFishJournals
                 )
                 {
                     // Note: bottles can be used for step clips for glitched
@@ -459,14 +463,6 @@ namespace TPRandomizer.Hints
                     newLogicalItems.Remove(Item.Jovani_Bottle);
                     newLogicalItems.Remove(Item.Sera_Bottle);
                 }
-            }
-
-            if (sSettings.shuffleFishJournals)
-            {
-                newLogicalItems.Remove(Item.Coro_Bottle);
-                newLogicalItems.Remove(Item.Empty_Bottle);
-                newLogicalItems.Remove(Item.Jovani_Bottle);
-                newLogicalItems.Remove(Item.Sera_Bottle);
             }
 
             if (
@@ -2213,8 +2209,10 @@ namespace TPRandomizer.Hints
                 foreach (string checkName in pair.Value)
                 {
                     Item contents = HintUtils.getCheckContents(checkName);
-                    if (!HintConstants.invalidSpolItems.Contains(contents)
-                        && !HintConstants.invalidSpolChecks.Contains(checkName))
+                    if (
+                        !HintConstants.invalidSpolItems.Contains(contents)
+                        && !HintConstants.invalidSpolChecks.Contains(checkName)
+                    )
                     {
                         if (
                             pair.Key.goalEnum == GoalEnum.Zant
