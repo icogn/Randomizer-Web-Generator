@@ -164,7 +164,7 @@ namespace TPRandomizer.Hints.HintCreator
                     if (allowedCounts != null && !allowedCounts.Contains(count))
                         continue;
 
-                    double weight = Math.Log(pia.effectiveUnknownChecksCount);
+                    double weight = 1 + Math.Log(pia.effectiveUnknownChecksCount);
                     weightedList.Add(new(weight, pia));
                 }
 
@@ -204,7 +204,7 @@ namespace TPRandomizer.Hints.HintCreator
                     List<KeyValuePair<double, PotentialIcArea>> weightedList = new();
                     foreach (PotentialIcArea pba in piaList)
                     {
-                        double weight = Math.Log(pba.effectiveUnknownChecksCount);
+                        double weight = 1 + Math.Log(pba.effectiveUnknownChecksCount);
                         weightedList.Add(new(weight, pba));
                     }
                     lists.Add(weightedList);

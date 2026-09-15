@@ -643,7 +643,7 @@ namespace TPRandomizer.Hints
                         "UZR Central Underwater Boulder Rupee",
                         "UZR West Underwater Boulder Rupee",
                         "UZR Ledge Boulder Rupee",
-                        // "Catch The Legendary Hylian Loach",
+                        "Catch The Legendary Hylian Loach",
                         // "Catch A Greengill",
                         // "Catch An Ordon Catfish",
                         // "Catch A Hyrule Bass",
@@ -1017,10 +1017,8 @@ namespace TPRandomizer.Hints
                         "Catch A Hylian Pike",
                         "Catch A Hylian Loach",
                         "Catch A Reekfish",
-                        "Catch The Legendary Hylian Loach",
                     }
                 },
-
             };
 
         static ZoneUtils()
@@ -1062,7 +1060,7 @@ namespace TPRandomizer.Hints
                 { Zone.City_in_the_Sky, "City in the Sky" },
                 { Zone.Palace_of_Twilight, "Palace of Twilight" },
                 { Zone.Hyrule_Castle, "Hyrule Castle" },
-                { Zone.Fish_Journal_Zone, "Fish Journal Zone"}
+                { Zone.Fish_Journal_Zone, "Fish Journal Zone" }
             };
 
             strToEnum = new();
