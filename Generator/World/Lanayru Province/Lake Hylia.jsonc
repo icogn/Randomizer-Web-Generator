@@ -135,48 +135,48 @@
     "Checks": [
       {
         "CheckName": "Outside Lanayru Spring Left Statue Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Outside Lanayru Spring Right Statue Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Top Platform Reward",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Second Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Third Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Fourth Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Fifth Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Ledge Poe",
-        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight"
+        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Isle of Riches Poe",
-        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight"
+        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay"
       }
     ],
     "Region": "Hyrule Field - Lanayru Province"
