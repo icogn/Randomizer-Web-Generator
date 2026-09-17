@@ -289,6 +289,10 @@
     <value>Faron Province</value>
     <comment></comment>
   </data>
+  <data name="area.province.fish_journal_province" xml:space="preserve">
+    <value>the {cs}Fish Journal{ce}</value>
+    <comment></comment>
+  </data>
   <data name="area.province.lanayru" xml:space="preserve">
     <value>Lanayru Province</value>
     <comment></comment>
@@ -355,6 +359,10 @@
   </data>
   <data name="area.zone.faron_woods" xml:space="preserve">
     <value>Faron Woods</value>
+    <comment></comment>
+  </data>
+  <data name="area.zone.fish_journal_zone" xml:space="preserve">
+    <value>the {cs}Fish Journal{ce}</value>
     <comment></comment>
   </data>
   <data name="area.zone.forest_temple" xml:space="preserve">

@@ -285,6 +285,10 @@
     <value>$(ap:dans)la {cs}Région de Firone{ce}</value>
     <comment></comment>
   </data>
+  <data name="area.province.fish_journal_province" xml:space="preserve">
+    <value>$(ap:dans)le {cs}Carnet de Pêche{ce}</value>
+    <comment></comment>
+  </data>
   <data name="area.province.lanayru" xml:space="preserve">
     <value>$(ap:dans)la {cs}Région de Lanelle{ce}</value>
     <comment></comment>
@@ -379,6 +383,10 @@
   </data>
   <data name="area.zone.faron_woods$plain" xml:space="preserve">
     <value>Forêt de Firone</value>
+    <comment></comment>
+  </data>
+  <data name="area.zone.fish_journal_zone" xml:space="preserve">
+    <value>$(ap:dans)le {cs}Carnet de Pêche{ce}</value>
     <comment></comment>
   </data>
   <data name="area.zone.forest_temple" xml:space="preserve">

@@ -449,8 +449,12 @@ namespace TPRandomizer.Hints
                 newLogicalItems.Remove(Item.Magic_Armor);
 
                 if (
-                    !sSettings.bonksDoDamage
-                    || sSettings.damageMagnification != DamageMagnification.OHKO
+                    (
+                        !sSettings.bonksDoDamage
+                        || sSettings.damageMagnification != DamageMagnification.OHKO
+                    )
+                    && !sSettings.shuffleExteriorEntrances
+                    && !sSettings.shuffleFishJournals
                 )
                 {
                     // Note: bottles can be used for step clips for glitched
@@ -1046,6 +1050,69 @@ namespace TPRandomizer.Hints
                 AreaCheckInfo totInfo = areaToCheckInfo[AreaId.Zone(Zone.Temple_of_Time)];
                 totInfo.dependentCheckNames.UnionWith(CheckFunctions.postArmogohmaChecks);
             }
+
+            // Manage fishes: allow fishes to prevent areas they can be fish in from being barren
+            if (sSettings.shuffleFishJournals)
+            {
+                uzrInfo.dependentCheckNames.Add("Catch A Greengill");
+                uzrInfo.dependentCheckNames.Add("Catch An Ordon Catfish");
+                uzrInfo.dependentCheckNames.Add("Catch A Hylian Pike");
+                uzrInfo.dependentCheckNames.Add("Catch A Hyrule Bass");
+                uzrInfo.dependentCheckNames.Add("Catch A Hylian Loach");
+
+                lhInfo.dependentCheckNames.Add("Catch A Greengill");
+                lhInfo.dependentCheckNames.Add("Catch A Hylian Loach");
+
+                fwInfo.dependentCheckNames.Add("Catch A Greengill");
+                fwInfo.dependentCheckNames.Add("Catch An Ordon Catfish");
+
+                kvInfo.dependentCheckNames.Add("Catch A Greengill");
+                kvInfo.dependentCheckNames.Add("Catch A Hyrule Bass");
+
+                gmInfo.dependentCheckNames.Add("Catch A Greengill");
+                gmInfo.dependentCheckNames.Add("Catch A Hyrule Bass");
+
+                AreaCheckInfo ordInfo = areaToCheckInfo[AreaId.Zone(Zone.Ordon)];
+                ordInfo.dependentCheckNames.Add("Catch A Greengill");
+                ordInfo.dependentCheckNames.Add("Catch An Ordon Catfish");
+
+                AreaCheckInfo sgInfo = areaToCheckInfo[AreaId.Zone(Zone.Sacred_Grove)];
+                sgInfo.dependentCheckNames.Add("Catch A Greengill");
+                sgInfo.dependentCheckNames.Add("Catch An Ordon Catfish");
+                sgInfo.dependentCheckNames.Add("Catch A Hylian Loach");
+
+                AreaCheckInfo ffInfo = areaToCheckInfo[AreaId.Zone(Zone.Faron_Field)];
+                ffInfo.dependentCheckNames.Add("Catch A Greengill");
+                ffInfo.dependentCheckNames.Add("Catch An Ordon Catfish");
+                ffInfo.dependentCheckNames.Add("Catch A Hylian Loach");
+
+                AreaCheckInfo kgInfo = areaToCheckInfo[AreaId.Zone(Zone.Kakariko_Graveyard)];
+                kgInfo.dependentCheckNames.Add("Catch A Greengill");
+                kgInfo.dependentCheckNames.Add("Catch A Hylian Loach");
+
+                AreaCheckInfo sctInfo = areaToCheckInfo[AreaId.Zone(Zone.South_of_Castle_Town)];
+                sctInfo.dependentCheckNames.Add("Catch A Greengill");
+                sctInfo.dependentCheckNames.Add("Catch A Hylian Pike");
+
+                AreaCheckInfo lfInfo = areaToCheckInfo[AreaId.Zone(Zone.Lanayru_Field)];
+                lfInfo.dependentCheckNames.Add("Catch A Greengill");
+                lfInfo.dependentCheckNames.Add("Catch A Hylian Pike");
+
+                AreaCheckInfo lsInfo = areaToCheckInfo[AreaId.Zone(Zone.Lanayru_Spring)];
+                lsInfo.dependentCheckNames.Add("Catch A Greengill");
+                lsInfo.dependentCheckNames.Add("Catch A Hylian Loach");
+
+                AreaCheckInfo zdInfo = areaToCheckInfo[AreaId.Zone(Zone.Zoras_Domain)];
+                zdInfo.dependentCheckNames.Add("Catch A Reekfish");
+
+                AreaCheckInfo ftInfo = areaToCheckInfo[AreaId.Zone(Zone.Forest_Temple)];
+                ftInfo.dependentCheckNames.Add("Catch A Greengill");
+                ftInfo.dependentCheckNames.Add("Catch An Ordon Catfish");
+
+                AreaCheckInfo ltInfo = areaToCheckInfo[AreaId.Zone(Zone.Lakebed_Temple)];
+                ltInfo.dependentCheckNames.Add("Catch A Greengill");
+                ltInfo.dependentCheckNames.Add("Catch A Hylian Loach");
+            }
         }
 
         public AreaCheckInfo GetAreaCheckInfoThrows(AreaId areaId)
@@ -1261,6 +1328,7 @@ namespace TPRandomizer.Hints
             Item contents = HintUtils.getCheckContents(checkName);
             return (
                 !HintConstants.invalidSpolItems.Contains(contents)
+                && !HintConstants.invalidSpolChecks.Contains(checkName)
                 && CheckCanBeClaimHinted(checkName)
                 && CalcDetailedCheckStatus(checkName) == DetailedCheckStatus.Required
             );
@@ -2137,7 +2205,10 @@ namespace TPRandomizer.Hints
                 foreach (string checkName in pair.Value)
                 {
                     Item contents = HintUtils.getCheckContents(checkName);
-                    if (!HintConstants.invalidSpolItems.Contains(contents))
+                    if (
+                        !HintConstants.invalidSpolItems.Contains(contents)
+                        && !HintConstants.invalidSpolChecks.Contains(checkName)
+                    )
                     {
                         if (
                             pair.Key.goalEnum == GoalEnum.Zant
