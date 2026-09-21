@@ -69,6 +69,7 @@ export const PRESETS = [
   },
   {
     name: 'Drehen S2',
+    aliases: ['tournament'],
     origSettingsStr:
       '8sg3P46P99999999Caaaa_xZAqX6Jm80W1pwC0107n6I4UPF7pvVBqUgAHRkLnNTBfTBfTBfSBWS3WS3WS3WS3WS7_9qFNFAuL0_OqWm6L9Co1BWZ40FiUMl1nRX5QWjsK8PVYUET-dWVb-4hEvmNPAnYrGTesXbTPstSC4d6b8eHs26CwIG9GJJeSPhIJKqo3iMiqGObsNfV2X_YcI5d__000Gm_y',
     description:
@@ -76,6 +77,7 @@ export const PRESETS = [
   },
   {
     name: 'Drehen S3',
+    aliases: ['tournament'],
     origSettingsStr:
       '8s25d4EP99999999Caaaa_yZQ4X6KGu0W1m0DW1W7x6I4UPF7pvVBqUgAHRk7QkAxfTBfTBfTBXS3WS3WS3WS3WS3W_vEXwvvN2e7x6a60of9cG9S4OW1zZoruEBS8hK5koX3ByJpzFo_1tE2x9MCMg3j6qChjkuO9EDAHGZi4CPqaWIWcdGupMacffa7OjPeWmtikozBx_92p__W008GXX_-8GB405Xy2my1OT0iE0M6mB3G5Xa2mi1OJ0igWML0BAO5b82oY1PE0icWMJ0B9O5ae2oI1P80iZWMK0B9u5aO2ma1OH0i7WM3WB1e5Wm2mM1OA0i4WM20B0m5WK2m81O30iOWMC0B5m5Yq2nO1V_',
     description:
