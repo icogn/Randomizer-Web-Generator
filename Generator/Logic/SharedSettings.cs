@@ -86,6 +86,7 @@ namespace TPRandomizer
         public bool noSmallKeysOnBosses { get; set; }
         public bool gmShortcut { get; set; }
         public bool hcShortcut { get; set; }
+        public bool hcSkip { get; set; }
         public StartingToD startingToD { get; set; }
         public HintDistribution hintDistribution { get; set; }
         public bool randomizeStartingPoint { get; set; }
@@ -125,7 +126,15 @@ namespace TPRandomizer
         public bool citsBridgeShortCut { get; set; }
         public bool citsFanShortCut { get; set; }
         public bool potShortCut { get; set; }
+        public bool lessKeyPalace { get; set; }
+        public bool skipZant { get; set; }
+        public bool coroKey { get; set; }
+        public bool autoRefillConsumables { get; set; }
+        public bool blownLBTRocks { get; set; }
         public bool alwaysGreatSpin { get; set; }
+        public bool plumAcess { get; set; }
+        public bool lockedLW { get; set; }
+        public bool canDropOilBottle { get; set; }
         public List<Item> startingItems { get; set; }
         public List<string> excludedChecks { get; set; }
         public Dictionary<string, string> logicalTricks { get; set; }
@@ -183,7 +192,7 @@ namespace TPRandomizer
             fastIronBoots = processor.NextBool();
             quickTransform = processor.NextBool();
             transformAnywhere = processor.NextBool();
-            walletSize = (WalletSize)processor.NextInt(2);
+            walletSize = (WalletSize)processor.NextInt(3);
             modifyShopModels = processor.NextBool();
             trapFrequency = (TrapFrequency)processor.NextInt(3);
             barrenDungeons = processor.NextBool();
@@ -248,6 +257,15 @@ namespace TPRandomizer
             citsFanShortCut = processor.NextBool();
             potShortCut = processor.NextBool();
             alwaysGreatSpin = processor.NextBool();
+            hcSkip = processor.NextBool();
+            lessKeyPalace = processor.NextBool();
+            skipZant = processor.NextBool();
+            coroKey = processor.NextBool();
+            autoRefillConsumables = processor.NextBool();
+            blownLBTRocks = processor.NextBool();
+            plumAcess = processor.NextBool();
+            lockedLW = processor.NextBool();
+            canDropOilBottle = processor.NextBool();
             // We sort these lists so that the order which the UI happens to
             // pass the data up does not affect anything.
             startingItems = processor.NextItemList();

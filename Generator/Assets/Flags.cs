@@ -23,7 +23,7 @@ namespace TPRandomizer.Assets
         {
             { 0x2, 0x46 }, // Midna jump 1 mist area.
             { 0x2, 0x47 }, // Midna jump 1 mist area.
-            { 0x2, 0x98 }, // South Faron Portal.
+            { 0x2, 0x51 }, // S warp shadow beast revive cs
         };
 
         /// <summary>
@@ -98,6 +98,18 @@ namespace TPRandomizer.Assets
             { 0x15, 0xA1 }, // Unlock door in Darknut Room in ToT
             { 0x15, 0xA3 }, // Skip small CS when darknut room door opens
             { 0x9, 0x55 }, // STAR Tent intro CS.
+            { 0x14, 0x56 }, // Watched CS of Yeta entering boss room.
+        };
+
+        public static readonly byte[,] OpenCTMaloMartRegionFlags = new byte[,]
+        {
+            { 0x9, 0x73 }, // malo mart posters on shop
+        };
+
+        public static readonly byte[,] OpenCTMaloMartEventFlags = new byte[,]
+        {
+            { 0x22, 0x10 }, // Malo Mart Castle Town branch is open
+            { 0x0F, 0x10 }, // Funded Castle Town Malo Mart
         };
 
         /// <summary>
@@ -304,6 +316,12 @@ namespace TPRandomizer.Assets
             { 0x18, 0xB0 }, // Unlock treasure room door.
             { 0x18, 0xA3 }, // Unlock door in south garden.
         };
+         public static readonly byte[,] lessKeyPalaceFlags = new byte[,]
+        {
+            { 0x17, 0x7B }, // Unlock door in east room 1.
+            { 0x17, 0x7C }, // Unlock door in west room 1.
+        };
+
 
         public static readonly byte[,] FTSmallKeyRegionFlags = new byte[,]
         {
@@ -388,7 +406,6 @@ namespace TPRandomizer.Assets
             { 0x13, 0xED }, // Got Arbiter's Grounds Big Key.
             { 0x14, 0x57 }, // Unlocked Snowpeak Ruins Boss Door.
             { 0x14, 0xED }, // Got Snowpeak Ruins Big Key.
-            { 0x14, 0x56 }, // Watched CS of Yeta entering boss room.
             { 0x15, 0x7F }, // Unlocked Temple of Time Boss Door.
             { 0x15, 0xED }, // Got Temple of Time Big Key.
             { 0x16, 0x58 }, // Unlocked City in The Sky Boss Door.
@@ -527,6 +544,25 @@ namespace TPRandomizer.Assets
             { 0x4, 0x78 }, // Blew up rock in front of lakebed.
         };
 
+        public static readonly byte[,] BlownLBTRocksRegionFlags = new byte[,]
+        {
+            { 0x12, 0x78 }, // blown up second rock in room before big key
+            { 0x12, 0x79 }, // blown up first rock in room before big key
+            { 0x12, 0x85 }, // blown up rock in room before mini-boss
+            { 0x12, 0x8D }, // stalactite fell in first west room 2F
+            { 0x12, 0x8E }, // stalactite falls by itself in second room
+            { 0x12, 0x8F }, // left stalactite fell in first east room 2F
+            { 0x12, 0x90 }, // right stalactite fell in first east room 2F
+            { 0x12, 0x91 }, // blown up rock in first east room 2F
+            { 0x12, 0x92 }, // south stalactite fell in first east room 1F
+            { 0x12, 0x93 }, // north stalactite fell in first east room 1F
+            { 0x12, 0x94 }, // south-east stalactite fell second room
+            { 0x12, 0x95 }, // north east stalactite fell in second room
+            { 0x12, 0x96 }, // south Stalactite fell second room
+            { 0x12, 0x97 }, // north west stalactite fell in second room
+            { 0x12, 0x98 }, // south west stalactile fell in second room
+        };
+    
         public static readonly byte[,] OpenArbitersRegionFlags = new byte[,]
         {
             { 0xA, 0x43 }, // Explored part 9 of the Bulblin camp area
@@ -838,6 +874,9 @@ namespace TPRandomizer.Assets
                 { 61, SprShortcutRegionFlags },
                 { 62, CitsBridgeShortcutRegionFlags },
                 { 63, CitsFanShortcutRegionFlags },
+                { 64, lessKeyPalaceFlags },
+                { 65, BlownLBTRocksRegionFlags },
+                { 66, OpenCTMaloMartRegionFlags },
             };
 
         /// <summary>
@@ -1069,6 +1108,7 @@ namespace TPRandomizer.Assets
                 { 30, bridgeDonationEventFlags },
                 { 56, AnimalConversationEventFlags },
                 { 57, SpawnGWolvesEventFlags },
+                { 66, OpenCTMaloMartEventFlags },
             };
         private static readonly SharedSettings RandomizerSettings = Randomizer.SSettings;
 
@@ -1142,6 +1182,9 @@ namespace TPRandomizer.Assets
             /* 61 */RandomizerSettings.sprShortCut,
             /* 62 */RandomizerSettings.citsBridgeShortCut,
             /* 63 */RandomizerSettings.citsFanShortCut,
+            /* 64 */RandomizerSettings.lessKeyPalace,
+            /* 65 */RandomizerSettings.blownLBTRocks,
+            /* 66 */RandomizerSettings.maloShopDonation == 0
         };
     }
 }

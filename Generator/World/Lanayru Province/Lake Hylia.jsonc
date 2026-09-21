@@ -14,8 +14,8 @@
       },
       {
         "ConnectedArea": "Lake Hylia Flight By Fowl",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "ConnectedArea": "Gerudo Desert",
@@ -24,8 +24,8 @@
       },
       {
         "ConnectedArea": "UZR River",
-        "Requirements": "Shadow_Crystal",
-        "GlitchedRequirements": "Shadow_Crystal"
+        "Requirements": "Shadow_Crystal and (Setting.plumAcess equals False)",
+        "GlitchedRequirements": "Shadow_Crystal and (Setting.plumAcess equals False)"
       },
       {
         "ConnectedArea": "Lake Hylia Lanayru Spring",
@@ -101,13 +101,13 @@
       },
       {
         "CheckName": "Talk To Plumm As Wolf",
-        "Requirements": "CanCompleteLanayruTwilight and Shadow_Crystal",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight and Shadow_Crystal"
+        "Requirements": "CanCompleteLanayruTwilight and Shadow_Crystal and (Setting.plumAcess equals False)",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and Shadow_Crystal and (Setting.plumAcess equals False)"
       },
       {
         "CheckName": "Talk To Plumm As Link",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and (Setting.plumAcess equals False)",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and (Setting.plumAcess equals False)"
       }
     ],
     "Region": "Lake Hylia"
@@ -117,8 +117,8 @@
     "Exits": [
       {
         "ConnectedArea": "Lake Hylia",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "ConnectedArea": "Lake Hylia Bridge",
@@ -128,55 +128,55 @@
       {
         // You can use the cannon and a cucco to reach the grotto ledge without any requirements.
         "ConnectedArea": "Lake Hylia Shell Blade Grotto",
-        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight"
+        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay"
       }
     ],
     "Checks": [
       {
         "CheckName": "Outside Lanayru Spring Left Statue Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Outside Lanayru Spring Right Statue Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Top Platform Reward",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Second Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Third Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Fourth Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Fifth Platform Chest",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
+        "Requirements": "CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Flight By Fowl Ledge Poe",
-        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight"
+        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay"
       },
       {
         "CheckName": "Isle of Riches Poe",
-        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight"
+        "Requirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay",
+        "GlitchedRequirements": "Shadow_Crystal and CanCompleteLanayruTwilight and CanPay"
       }
     ],
     "Region": "Hyrule Field - Lanayru Province"
@@ -389,8 +389,8 @@
     "Exits": [
       {
         "ConnectedArea": "Lake Hylia Flight By Fowl",
-        "Requirements": "true",
-        "GlitchedRequirements": "true"
+        "Requirements": "CanPay",
+        "GlitchedRequirements": "CanPay"
       }
     ],
     "Checks": [
@@ -421,13 +421,13 @@
       },
       {
         "CheckName": "Catch A Greengill",
-        "Requirements": "Progressive_Fishing_Rod and CanDefeatWaterToadpoli",
-        "GlitchedRequirements": "Progressive_Fishing_Rod and CanDefeatWaterToadpoli"
+        "Requirements": "Progressive_Fishing_Rod and (CanDefeatWaterToadpoli or (Shadow_Crystal and Trick.toadpoli_grotto_with_wolf))",
+        "GlitchedRequirements": "Progressive_Fishing_Rod and (CanDefeatWaterToadpoli or (Shadow_Crystal and Trick.toadpoli_grotto_with_wolf))"
       },
       {
         "CheckName": "Catch A Hylian Loach",
-        "Requirements": "CanCatchBaitedFish and CanDefeatWaterToadpoli",
-        "GlitchedRequirements": "CanCatchBaitedFish and CanDefeatWaterToadpoli"
+        "Requirements": "CanCatchBaitedFish and (CanDefeatWaterToadpoli or (Shadow_Crystal and Trick.toadpoli_grotto_with_wolf))",
+        "GlitchedRequirements": "CanCatchBaitedFish and (CanDefeatWaterToadpoli or (Shadow_Crystal and Trick.toadpoli_grotto_with_wolf))"
       }
     ],
     "Region": "Lake Hylia"

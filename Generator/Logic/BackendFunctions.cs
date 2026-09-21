@@ -85,7 +85,10 @@ namespace TPRandomizer
 
                             if (!currentCheck.hasBeenReached)
                             {
-                                if (graphRoom.Checks[i].CachedRequirements().Evaluate())
+                                if (
+                                    graphRoom.Checks[i].CachedRequirements().Evaluate()
+                                    && !graphRoom.Checks[i].IsIsolated
+                                )
                                 {
                                     if (currentCheck.itemWasPlaced)
                                     {
@@ -231,7 +234,10 @@ namespace TPRandomizer
 
                             if (!currentCheck.hasBeenReached)
                             {
-                                if (graphRoom.Checks[i].CachedRequirements().Evaluate())
+                                if (
+                                    graphRoom.Checks[i].CachedRequirements().Evaluate()
+                                    && !graphRoom.Checks[i].IsIsolated
+                                )
                                 {
                                     if (currentCheck.itemWasPlaced)
                                     {
@@ -360,6 +366,13 @@ namespace TPRandomizer
                 }
             }
 
+            if (sSettings.plumAcess)
+            {
+                allowedUnreachableChecks.Add("Plumm Fruit Balloon Minigame");
+                allowedUnreachableChecks.Add("Talk To Plumm As Wolf");
+                allowedUnreachableChecks.Add("Talk To Plumm As Link");
+            }
+
             return allowedUnreachableChecks;
         }
 
@@ -435,7 +448,10 @@ namespace TPRandomizer
 
                         if (!currentCheck.hasBeenReached)
                         {
-                            if (graphRoom.Checks[i].CachedRequirements().Evaluate())
+                            if (
+                                graphRoom.Checks[i].CachedRequirements().Evaluate()
+                                && !graphRoom.Checks[i].IsIsolated
+                            )
                             {
                                 sphereItems.Add(currentCheck.itemId);
                                 currentCheck.hasBeenReached = true;
@@ -603,7 +619,10 @@ namespace TPRandomizer
 
                             if (!currentCheck.hasBeenReached)
                             {
-                                if (graphRoom.Checks[i].CachedRequirements().Evaluate())
+                                if (
+                                    graphRoom.Checks[i].CachedRequirements().Evaluate()
+                                    && !graphRoom.Checks[i].IsIsolated
+                                )
                                 {
                                     playthroughDictionaryAll.Add(
                                         "    "
@@ -811,7 +830,10 @@ namespace TPRandomizer
 
                             if (!currentCheck.hasBeenReached && currentCheck.itemWasPlaced)
                             {
-                                if (graphRoom.Checks[i].CachedRequirements().Evaluate())
+                                if (
+                                    graphRoom.Checks[i].CachedRequirements().Evaluate()
+                                    && !graphRoom.Checks[i].IsIsolated
+                                )
                                 {
                                     currentCheck.hasBeenReached = true;
                                     if (
@@ -1011,7 +1033,10 @@ namespace TPRandomizer
 
                                 if (!currentCheck.hasBeenReached && currentCheck.itemWasPlaced)
                                 {
-                                    if (graphRoom.Checks[i].CachedRequirements().Evaluate())
+                                    if (
+                                        graphRoom.Checks[i].CachedRequirements().Evaluate()
+                                        && !graphRoom.Checks[i].IsIsolated
+                                    )
                                     {
                                         currentCheck.hasBeenReached = true;
                                         if (reachedChecks != null)
@@ -1198,7 +1223,10 @@ namespace TPRandomizer
                                     && currentCheck.isRequired
                                 )
                                 {
-                                    if (graphRoom.Checks[i].CachedRequirements().Evaluate())
+                                    if (
+                                        graphRoom.Checks[i].CachedRequirements().Evaluate()
+                                        && !graphRoom.Checks[i].IsIsolated
+                                    )
                                     {
                                         currentCheck.hasBeenReached = true;
 

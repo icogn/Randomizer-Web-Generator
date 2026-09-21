@@ -20,7 +20,7 @@
       },
       {
         "ConnectedArea": "South Faron Woods Behind Field Gate",
-        "Requirements": "CanClearForest and CanCompleteFaronTwilight and CanCompletePrologue",
+        "Requirements": "CanClearForest and CanCompleteFaronTwilight and CanCompletePrologue and (Faron_Woods_Coro_Key or (Setting.coroKey equals False))",
         // There's no prologue requirement because worse case scenerio, you just gate clip
         "GlitchedRequirements": "CanClearForestGlitched and CanCompleteFaronTwilight"
       },
@@ -33,8 +33,8 @@
     "Checks": [
       {
         "CheckName": "Coro Bottle",
-        "Requirements": "((Setting.walletSize not_equal Reduced) or Progressive_Wallet)",
-        "GlitchedRequirements": "((Setting.walletSize not_equal Reduced) or Progressive_Wallet)"
+        "Requirements": "(((Setting.walletSize not_equal Reduced) and (Setting.walletSize not_equal Minimal)) or Progressive_Wallet)",
+        "GlitchedRequirements": "(((Setting.walletSize not_equal Reduced) and (Setting.walletSize not_equal Minimal)) or Progressive_Wallet)"
       },
       {
         "CheckName": "Coro Lantern",
@@ -105,8 +105,8 @@
     "Exits": [
       {
         "ConnectedArea": "South Faron Woods",
-        "Requirements": "CanCompletePrologue",
-        "GlitchedRequirements": "CanCompletePrologue"
+        "Requirements": "CanCompletePrologue and (Faron_Woods_Coro_Key or (Setting.coroKey equals False))",
+        "GlitchedRequirements": "CanCompletePrologue and (Faron_Woods_Coro_Key or (Setting.coroKey equals False))"
       },
       {
         "ConnectedArea": "Faron Field",
@@ -475,8 +475,8 @@
       },
       {
         "ConnectedArea": "North Faron Lost Woods Entrance",
-        "Requirements": "Shadow_Crystal and CanCompleteFaronTwilight",
-        "GlitchedRequirements": "(Shadow_Crystal and CanCompleteFaronTwilight) or (HasBombs and CanDoLJA)"
+        "Requirements": "CanCompleteFaronTwilight and (((Setting.lockedLW equals True) and Boomerang) or ((Setting.lockedLW equals False) and Shadow_Crystal))",
+        "GlitchedRequirements": "(CanCompleteFaronTwilight and ((Setting.lockedLW equals False) or Boomerang)) or ((Setting.lockedLW equals False) and ((HasBombs and CanDoLJA) or Shadow_Crystal))"
       },
       {
         "ConnectedArea": "FT Entrance",

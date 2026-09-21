@@ -376,7 +376,8 @@ namespace TPRandomizer.Assets
                 randomizerSettings.skipMajorCutscenes,
                 fcSettings.invertCameraAxis,
                 fcSettings.lightSwordAlwaysGlows,
-                randomizerSettings.alwaysGreatSpin
+                randomizerSettings.alwaysGreatSpin,
+                randomizerSettings.canDropOilBottle
             };
             bool[] flagsBitfieldArray =
             {
@@ -390,6 +391,11 @@ namespace TPRandomizer.Assets
                 fcSettings.midnaHairBaseLightWorldInactive == 0xFFFFFE, // Rainbow Midna Hair
                 fcSettings.lightSwordGlowColor.getResult().basicDataEntry == 0xFFFFFE, // Rainbow Glow
                 randomizerSettings.shuffleExteriorEntrances,
+                randomizerSettings.skipZant,
+                randomizerSettings.coroKey,
+                randomizerSettings.autoRefillConsumables,
+                randomizerSettings.plumAcess,
+                randomizerSettings.lockedLW
             };
 
             List<bool[]> flagArrayList = new()
@@ -1000,7 +1006,13 @@ namespace TPRandomizer.Assets
                     0x30B0,
                     0x418000c4
                 ), // Patch item checking so that showing the completed skybook doesn't bork the check
-
+                new RELReplacement(
+                    (int)ReplacementType.Instruction,
+                    (int)0xFF,
+                    (int)GCRelIDs.D_A_NPC_WRESTLER,
+                    0x41B0,
+                    DataFunctions.ASM_NOP()
+                ), // Patch bo rng
                 // D_A_OBJ_DROP - Tear of Light
                 new RELReplacement(
                     (int)ReplacementType.Instruction,
@@ -1084,6 +1096,30 @@ namespace TPRandomizer.Assets
                     0x6F0,
                     DataFunctions.ASM_NOP()
                 ),// Remove the Y Rot modificaiton for the hanging shield item
+
+                 new RELReplacement(
+                    (int)ReplacementType.Instruction,
+                    (int)0xFF,
+                    (int)GCRelIDs.D_A_MG_FISH,
+                    0x46BC,
+                    DataFunctions.ASM_NOP()
+                ), // patch fishing rng 1
+
+                 new RELReplacement(
+                    (int)ReplacementType.Instruction,
+                    (int)0xFF,
+                    (int)GCRelIDs.D_A_MG_FISH,
+                    0x46DC,
+                    DataFunctions.ASM_NOP()
+                ), // patch fishing rng 2
+                
+                new RELReplacement(
+                    (int)ReplacementType.Instruction,
+                    (int)0xFF,
+                    (int)GCRelIDs.D_A_MG_FISH,
+                    0x47B8,
+                    DataFunctions.ASM_BRANCH(0x10)
+                ), // patch fishing rng 3
             ];
 
             // Parse Midna hair color replacement

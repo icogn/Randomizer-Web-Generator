@@ -169,6 +169,18 @@
     <value>$(plural)Grottos</value>
     <comment></comment>
   </data>
+  <data name="area.category.lakebed_temple_underwater" xml:space="preserve">
+    <value>this Dungeon{cs} 3 underwater chests{ce}</value>
+    <comment></comment>
+  </data>
+  <data name="area.category.lantern_chests" xml:space="preserve">
+    <value>a {cs}spawnable lantern chests{ce}</value>
+    <comment></comment>
+  </data>
+  <data name="area.category.lantern_chests$plain" xml:space="preserve">
+    <value>Spawnable Lantern Chests</value>
+    <comment></comment>
+  </data>
   <data name="area.category.llc_lantern_chests" xml:space="preserve">
     <value>a {cs}lantern chest in Lake Lantern Cave{ce}</value>
     <comment></comment>
@@ -217,6 +229,18 @@
     <value>$(ap:behind,plural)Owl Statues</value>
     <comment></comment>
   </data>
+  <data name="area.category.palace_of_twilight_center_wing" xml:space="preserve">
+    <value>the {cs}central tower{ce}</value>
+    <comment></comment>
+  </data>
+  <data name="area.category.palace_of_twilight_east_wing" xml:space="preserve">
+    <value>the {cs}east wing{ce}</value>
+    <comment></comment>
+  </data>
+  <data name="area.category.palace_of_twilight_west_wing" xml:space="preserve">
+    <value>the {cs}west wing{ce}</value>
+    <comment></comment>
+  </data>
   <data name="area.category.southern_desert" xml:space="preserve">
     <value>the {cs}southern desert{ce}</value>
     <comment></comment>
@@ -263,6 +287,10 @@
   </data>
   <data name="area.province.faron" xml:space="preserve">
     <value>Faron Province</value>
+    <comment></comment>
+  </data>
+  <data name="area.province.fish_journal_province" xml:space="preserve">
+    <value>the {cs}Fish Journal{ce}</value>
     <comment></comment>
   </data>
   <data name="area.province.lanayru" xml:space="preserve">
@@ -331,6 +359,10 @@
   </data>
   <data name="area.zone.faron_woods" xml:space="preserve">
     <value>Faron Woods</value>
+    <comment></comment>
+  </data>
+  <data name="area.zone.fish_journal_zone" xml:space="preserve">
+    <value>the {cs}Fish Journal{ce}</value>
     <comment></comment>
   </data>
   <data name="area.zone.forest_temple" xml:space="preserve">

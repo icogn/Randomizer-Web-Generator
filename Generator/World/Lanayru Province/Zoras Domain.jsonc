@@ -118,8 +118,8 @@
       },
       {
         "CheckName": "Iza Raging Rapids Minigame",
-        "Requirements": "Room.UZR_River and (HasSword or (CanDefeatShadowBeast and (Setting.transformAnywhere equals True))) and (Progressive_Bow, 1) and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "Room.UZR_River and (HasSword or (CanDefeatShadowBeast and (Setting.transformAnywhere equals True))) and (Progressive_Bow, 1) and CanCompleteLanayruTwilight"
+        "Requirements": "(Room.UZR_River and (HasSword or (CanDefeatShadowBeast and (Setting.transformAnywhere equals True))) and (Progressive_Bow, 1) and CanCompleteLanayruTwilight) and CanPay",
+        "GlitchedRequirements": "(Room.UZR_River and (HasSword or (CanDefeatShadowBeast and (Setting.transformAnywhere equals True))) and (Progressive_Bow, 1) and CanCompleteLanayruTwilight) and CanPay"
       }
     ],
     "Region": "Zoras Domain"
@@ -187,25 +187,25 @@
       },
       {
         "ConnectedArea": "Fishing Hole Canoe",
-        "Requirements": "true",
-        "GlitchedRequirements": "true"
+        "Requirements": "CanPay",
+        "GlitchedRequirements": "CanPay"
       }
     ],
     "Checks": [
       {
         "CheckName": "Rollgoal 1-1",
-        "Requirements": "true",
-        "GlitchedRequirements": "true"
+        "Requirements": "CanPay",
+        "GlitchedRequirements": "CanPay"
       },
       {
         "CheckName": "Rollgoal 1-8",
-        "Requirements": "true",
-        "GlitchedRequirements": "true"
+        "Requirements": "CanPay",
+        "GlitchedRequirements": "CanPay"
       },
       {
         "CheckName": "Rollgoal 8-8",
-        "Requirements": "true",
-        "GlitchedRequirements": "true"
+        "Requirements": "CanPay",
+        "GlitchedRequirements": "CanPay"
       }
     ],
     "Region": "Zoras Domain"
@@ -242,12 +242,6 @@
         "ConnectedArea": "UZR River",
         "Requirements": "true",
         "GlitchedRequirements": "true"
-      },
-      // Prior to Lanaru twilight being cleared both the ledge and the river take you to the same place.
-      {
-        "ConnectedArea": "UZR Ledge",
-        "Requirements": "CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanCompleteLanayruTwilight"
       },
       {
         "ConnectedArea": "ZD Top of Waterfall",
@@ -339,8 +333,13 @@
       },
       {
         "ConnectedArea": "ZD Snowpeak Entrance",
-        "Requirements": "Ball_and_Chain",
-        "GlitchedRequirements": "Ball_and_Chain"
+        "Requirements": "Ball_and_Chain or CanCompleteLanayruTwilight",
+        "GlitchedRequirements": "Ball_and_Chain or CanCompleteLanayruTwilight"
+      },
+      {
+        "ConnectedArea": "ZD Waterfall Area",
+        "Requirements": "true",
+        "GlitchedRequirements": "true"
       }
     ],
     "Region": "Zoras Domain"
@@ -349,7 +348,7 @@
     "RoomName": "ZD Snowpeak Entrance",
     "Exits": [
       {
-        "ConnectedArea": "ZD Waterfall Area",
+        "ConnectedArea": "ZD Lower Ledge",
         "Requirements": "Ball_and_Chain or CanCompleteLanayruTwilight",
         "GlitchedRequirements": "Ball_and_Chain or CanCompleteLanayruTwilight"
       },
@@ -411,8 +410,8 @@
       },
       {
         "CheckName": "ZD Underwater Goron",
-        "Requirements": "CanUseWaterBombs and HasHeavyMod and (Zora_Armor or Trick.underwater_goron_without_za) and CanCompleteLanayruTwilight",
-        "GlitchedRequirements": "CanUseWaterBombs and HasHeavyMod and CanCompleteLanayruTwilight"
+        "Requirements": "CanUseWaterBombs and Iron_Boots and (Zora_Armor or Trick.underwater_goron_without_za) and CanCompleteLanayruTwilight",
+        "GlitchedRequirements": "CanUseWaterBombs and Iron_Boots and CanCompleteLanayruTwilight"
       },
       {
         "CheckName": "ZD Portal",

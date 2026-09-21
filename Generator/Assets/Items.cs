@@ -1064,7 +1064,10 @@ namespace TPRandomizer
                     {
                         updateItemToCount(RandomizedImportantItems, Item.Progressive_Wallet, 1);
                     }
-                    else if (Randomizer.SSettings.walletSize >= WalletSize.HD)
+                    else if (
+                        Randomizer.SSettings.walletSize == WalletSize.HD
+                        || Randomizer.SSettings.walletSize == WalletSize.Large
+                    )
                     {
                         updateItemToCount(RandomizedImportantItems, Item.Progressive_Wallet, 0);
                     }
@@ -1124,6 +1127,7 @@ namespace TPRandomizer
                     break;
             }
 
+            int hpCount = 0;
             foreach ((string checkName, Item item) in parseSetting.plandoChecks)
             {
                 switch (item)
@@ -1143,6 +1147,20 @@ namespace TPRandomizer
                         }
                         break;
                     }
+                    case Item.Piece_of_Heart:
+                    {
+                        hpCount++;
+                        // If we have 5 heart pieces and have no more heart pieces to remove, start removing heart containers. 
+                        if ((hpCount == 5) && (getItemCount(this.alwaysItems, item) == 0))
+                        {
+                            RemoveItem(Item.Heart_Container);
+                            hpCount = 0;
+                            
+                        }
+                        RemoveItem(item);
+                        
+                        break;
+                    }
 
                     default:
                     {
@@ -1155,6 +1173,7 @@ namespace TPRandomizer
 
             // Handle portals
             parseSetting.startingItems.Add(Item.Ordon_Portal);
+
             if (parseSetting.faronTwilightCleared)
             {
                 parseSetting.startingItems.Add(Item.South_Faron_Portal);
@@ -1187,6 +1206,30 @@ namespace TPRandomizer
                 // We still need a skybook for Shad
                 updateItemToCount(RandomizedImportantItems, Item.Progressive_Sky_Book, 1);
             }
+             if (parseSetting.hcSkip)
+            {
+                updateItemToCount(this.RandomizedDungeonRegionItems, Item.Hyrule_Castle_Big_Key, 0);
+                updateItemToCount(
+                    this.RandomizedDungeonRegionItems,
+                    Item.Hyrule_Castle_Small_Key,
+                    0
+                );
+            }
+             if (parseSetting.lessKeyPalace)
+            {
+                updateItemToCount(this.RandomizedDungeonRegionItems, Item.Palace_of_Twilight_Small_Key, 5);
+            }
+            if(parseSetting.coroKey)
+            {
+              parseSetting.startingItems.Remove(Item.South_Faron_Portal);
+              parseSetting.startingItems.Remove(Item.North_Faron_Portal);
+            }
+
+            if(parseSetting.hintDistribution == HintDistribution.Drehen_s3)
+            {
+                parseSetting.startingItems.Remove(Item.Zoras_Domain_Portal);
+            }
+
 
             foreach (Item startingItem in parseSetting.startingItems)
             {

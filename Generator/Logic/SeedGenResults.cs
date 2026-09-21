@@ -691,6 +691,12 @@ namespace TPRandomizer
             result.Add("skipArbitersEntrance", sSettings.skipArbitersEntrance);
             result.Add("skipSnowpeakEntrance", sSettings.skipSnowpeakEntrance);
             result.Add("skipGroveEntrance", sSettings.skipGroveEntrance);
+            result.Add("coroKey", sSettings.coroKey);
+            result.Add("autoRefillConsumables", sSettings.autoRefillConsumables);
+            result.Add("blownLBTRocks", sSettings.blownLBTRocks);
+            result.Add("plumAcess", sSettings.plumAcess);
+            result.Add("lockedLW", sSettings.lockedLW);
+            result.Add("canDropOilBottle", sSettings.canDropOilBottle);
             result.Add("totEntrance", sSettings.totEntrance.ToString());
             result.Add("skipCityEntrance", sSettings.skipCityEntrance);
             result.Add("instantText", sSettings.instantText);
@@ -710,7 +716,10 @@ namespace TPRandomizer
             result.Add("citsBridgeShortcut", sSettings.citsBridgeShortCut);
             result.Add("citsFanShortcut", sSettings.citsFanShortCut);
             result.Add("potShortcut", sSettings.potShortCut);
+            result.Add("lessKeyPalace", sSettings.lessKeyPalace);
+            result.Add("skipZant", sSettings.skipZant);
             result.Add("hcShortcut", sSettings.hcShortcut);
+            result.Add("hcSkip", sSettings.hcSkip);
             result.Add("iliaQuest", sSettings.iliaQuest.ToString());
             result.Add("mirrorChamberEntrance", sSettings.mirrorChamberEntrance.ToString());
             result.Add("shuffleDungeonEntrances", sSettings.shuffleDungeonEntrances.ToString());

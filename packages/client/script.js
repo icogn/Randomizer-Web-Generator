@@ -754,6 +754,9 @@ document
 document
   .getElementById('hcShortcutCheckbox')
   .addEventListener('click', setSettingsString);
+  document
+  .getElementById('hcSkipCheckbox')
+  .addEventListener('click', setSettingsString);
 document.getElementById('itemScarcityFieldset').onchange = setSettingsString;
 document.getElementById('damageMagFieldset').onchange = setSettingsString;
 document.getElementById('todFieldset').onchange = setSettingsString;
@@ -941,6 +944,30 @@ document
   .addEventListener('click', setSettingsString);
 document
   .getElementById('potShortcutCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('lessKeyPalaceCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('skipZantCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('coroKeyCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('autoRefillConsumablesCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('blownLBTRocksCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('plumacessCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('lockedLWCheckbox')
+  .addEventListener('click', setSettingsString);
+document
+  .getElementById('canDropOilBottleCheckbox')
   .addEventListener('click', setSettingsString);
 document
   .getElementById('greatSpinCheckbox')
@@ -1188,6 +1215,15 @@ function setGeneralERSettings() {
   }
 }
 
+function setHcSettings() {
+  const hcSkipChecked = document.getElementById('hcSkipCheckbox').checked;
+  const hcShortcutChecked =
+    document.getElementById('hcShortcutCheckbox').checked;
+
+  document.getElementById('hcShortcutCheckbox').disabled = hcSkipChecked;
+  document.getElementById('hcSkipCheckbox').disabled = hcShortcutChecked;
+}
+
 function setSmallKeyValues() {
   const smallKeyValue = document.getElementById('smallKeyFieldset').value;
   document.getElementById('ftSmallKeyFieldset').value = smallKeyValue;
@@ -1235,6 +1271,7 @@ function setMapAndCompassValues() {
 
 function setSettingsString() {
   setGeneralERSettings();
+  setHcSettings();
   const combinedSettingsString = window.tpr.shared.genSSettingsFromUi();
   document.getElementById('combinedSettingsString').textContent =
     combinedSettingsString;
@@ -2614,6 +2651,7 @@ function populateSSettings(s) {
   $('#hiddenRupeeCheckbox').prop('checked', s.hiddenRupees);
   $('#gmShortcutCheckbox').prop('checked', s.gmShortcut);
   $('#hcShortcutCheckbox').prop('checked', s.hcShortcut);
+  $('#hcSkipCheckbox').prop('checked', s.hcSkip);
   $('#iliaQuestFieldset').val(s.iliaQuest);
   $('#mirrorChamberFieldset').val(s.mirrorChamber);
   $('#dungeonERFieldset').val(s.dungeonER).trigger('change');
@@ -2653,6 +2691,14 @@ function populateSSettings(s) {
   $('#citsShortcutCheckbox').prop('checked', s.citsShortcut);
   $('#citsShortcutFanCheckbox').prop('checked', s.citsFanShortcut);
   $('#potShortcutCheckbox').prop('checked', s.potShortcut);
+  $('#lessKeyPalaceCheckbox').prop('checked', s.lessKeyPalace);
+  $('#skipZantCheckbox').prop('checked', s.skipZant);
+  $('#coroKeyCheckbox').prop('checked', s.coroKey);
+  $('#autoRefillConsumablesCheckbox').prop('checked', s.autoRefillConsumables);
+  $('#blownLBTRocksCheckbox').prop('checked', s.blownLBTRocks);
+  $('#plumacessCheckbox').prop('checked', s.plumAcess);
+  $('#lockedLWCheckbox').prop('checked', s.lockedLW);
+  $('#canDropOilBottleCheckbox').prop('checked', s.canDropOilBottle);
   $('#greatSpinCheckbox').prop('checked', s.alwaysGreatSpin);
 
   const $excludedChecksParent = $('#baseExcludedChecksListbox');

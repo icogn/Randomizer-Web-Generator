@@ -180,12 +180,10 @@ namespace TPRandomizer
                     break;
                 }
                 // If for some reason the assumed fill fails, we want to dump everything and start over.
-                catch (ArgumentOutOfRangeException a)
+                catch (Exception a)
                 {
-                    a = null;
                     Console.WriteLine(
-                        "/~~~~~~~~~~~~~~~~~~~~~ Generation Failure. No checks remaining, starting over..~~~~~~~~~~~~~~~~~~~~~~~~~~~~/"
-                            + a
+                        $"/~~~~~~~~~~~~~~~~~~~~~ Generation Failure. No checks remaining, starting over..~~~~~~~~~~~~~~~~~~~~~~~~~~~~/ Reason: {a}"
                     );
                     StartOver();
                     continue;
@@ -543,6 +541,18 @@ namespace TPRandomizer
                 part2Settings.Add("increaseSpinnerSpeed", SSettings.increaseSpinnerSpeed);
             if (SSettings.openDot)
                 part2Settings.Add("openDot", SSettings.openDot);
+             if (SSettings.skipZant)
+                part2Settings.Add("skipZant", SSettings.skipZant);
+            if (SSettings.coroKey)
+                part2Settings.Add("coroKey", SSettings.coroKey);
+            if (SSettings.autoRefillConsumables)
+                part2Settings.Add("autoRefillConsumables", SSettings.autoRefillConsumables);
+            if (SSettings.plumAcess)
+                part2Settings.Add("plumAcess", SSettings.plumAcess);
+            if (SSettings.lockedLW)
+                part2Settings.Add("lockedLW", SSettings.lockedLW);
+            if (SSettings.canDropOilBottle)
+                part2Settings.Add("canDropOilBottle", SSettings.canDropOilBottle);
 
             // Complex fields
             if (SSettings.startingItems?.Count > 0)
@@ -1175,14 +1185,28 @@ namespace TPRandomizer
                 Console.WriteLine("Placing items via No Logic.");
                 while (allItems.Count > 0)
                 {
-                    Check currentCheck = Checks.CheckDict
-                        .ElementAt(rnd.Next(Checks.CheckDict.Count - 1))
-                        .Value;
-                    if (!currentCheck.itemWasPlaced)
+                    List<string> availableChecks = new();
+                    foreach (KeyValuePair<string, Check> checkList in Checks.CheckDict.ToList())
+                    {
+                        Check chk = checkList.Value;
+                        if (!chk.itemWasPlaced)
+                        {
+                            availableChecks.Add(chk.checkName);
+                        }
+                    }
+                    if (availableChecks.Count > 0)
                     {
                         Item itemToPlace = allItems[rnd.Next(allItems.Count - 1)];
+                        string curChkName = availableChecks[rnd.Next(availableChecks.Count - 1)];
+                        Check currentCheck = Checks.CheckDict[curChkName];
                         PlaceItemInCheck(itemToPlace, currentCheck);
                         allItems.Remove(itemToPlace);
+                    }
+                    else
+                    {
+                        throw new Exception(
+                            $"ERROR: Mismatch between available items (count: {allItems.Count}) and available checks (count: {availableChecks.Count}). Please check your settings and try again."
+                        );
                     }
                 }
 
@@ -1341,10 +1365,12 @@ namespace TPRandomizer
                                         if (!currentCheck.hasBeenReached)
                                         {
                                             if (
-                                                SSettings.logicRules == LogicRules.No_Logic
-                                                || graphRoom.Checks[i]
-                                                    .CachedRequirements()
-                                                    .Evaluate()
+                                                (
+                                                    SSettings.logicRules == LogicRules.No_Logic
+                                                    || graphRoom.Checks[i]
+                                                        .CachedRequirements()
+                                                        .Evaluate()
+                                                ) && !graphRoom.Checks[i].IsIsolated
                                             )
                                             {
                                                 if (currentCheck.itemWasPlaced)
@@ -1509,7 +1535,7 @@ namespace TPRandomizer
             check.itemWasPlaced = true;
             check.itemId = item;
 
-            // Console.WriteLine("Placed " + check.itemId + " in check " + check.checkName);
+            Console.WriteLine("Placed " + check.itemId + " in check " + check.checkName);
         }
 
         private static void StartOver()
@@ -1632,17 +1658,17 @@ namespace TPRandomizer
                         listOfAffectedChecks[i].AddRange(bRoom.getCheckNames());
                         switch (bossRoom)
                         {
-                            case "Goron Mines Boss Room":
+                            case "GM Boss Room":
                             {
                                 listOfAffectedChecks[i].AddRange(CheckFunctions.postFyrusChecks);
                                 break;
                             }
-                            case "Snowpeak Ruins Boss Room":
+                            case "SPR Boss Room":
                             {
                                 listOfAffectedChecks[i].AddRange(CheckFunctions.postBlizettaChecks);
                                 break;
                             }
-                            case "Temple of Time Boss Room":
+                            case "ToT Boss Room":
                             {
                                 if (Randomizer.SSettings.iliaQuest == IliaQuest.Vanilla)
                                 {
@@ -1671,10 +1697,11 @@ namespace TPRandomizer
             Console.WriteLine("Checking Required Dungeons!");
             // Now loop through all dungeons and validate the necessity of every check related to the dungeon.
 
-            Dictionary<string, Item> checkData = new();
+
             List<Item> requiredItems = new();
             for (int i = 0; i < listOfRequiredDungeons.GetLength(0); i++)
             {
+                Dictionary<string, Item> checkData = new();
                 // If HCBK is locked by dungeons or if HC is not shuffled and barrier also requires dungeons, then all dungeons are required by default
                 if (
                     (
@@ -1716,12 +1743,12 @@ namespace TPRandomizer
                         }
                     }
                 }
-            }
 
-            // After we are done, we want to restore any checks that were listed as "unrequired"
-            foreach (KeyValuePair<string, Item> pair in checkData)
-            {
-                Randomizer.Checks.CheckDict[pair.Key].itemId = pair.Value;
+                // After we are done, we want to restore any checks that were listed as "unrequired"
+                foreach (KeyValuePair<string, Item> pair in checkData)
+                {
+                    Randomizer.Checks.CheckDict[pair.Key].itemId = pair.Value;
+                }
             }
 
             // Next we want to account for items that are multiple and list the dungeon as required as we don't want to assume player preference.
@@ -1766,8 +1793,16 @@ namespace TPRandomizer
                                 // checks in unrequired barren dungeons to not
                                 // be marked as "Excluded-Unrequired".
 
-                                //Console.WriteLine(check + " is now excluded");
-                                Checks.CheckDict[check].checkStatus = "Excluded-Unrequired";
+
+                                if (CheckFunctions.IsolatableChecks.Contains(check))
+                                {
+                                    IsolateUnrequiredDungeonCheck(check, DungeonNames[i]);
+                                }
+                                else
+                                {
+                                    Console.WriteLine(check + " is now excluded");
+                                    Checks.CheckDict[check].checkStatus = "Excluded-Unrequired";
+                                }
                             }
                         }
                     }
@@ -2214,6 +2249,29 @@ namespace TPRandomizer
                 }
             }
             return portalRooms;
+        }
+
+        private static void IsolateUnrequiredDungeonCheck(string checkName, string dungeonName)
+        {
+            foreach (KeyValuePair<string, Room> roomList in Randomizer.Rooms.RoomDict.ToList())
+            {
+                Room currentRoom = roomList.Value;
+                if (currentRoom.Region != null)
+                {
+                    if (currentRoom.Region.Contains(dungeonName) && (currentRoom.Checks != null))
+                    {
+                        foreach (CheckData checkData in currentRoom.Checks)
+                        {
+                            if (checkData.CheckName == checkName)
+                            {
+                                checkData.IsIsolated = true;
+                                Console.WriteLine($"{checkData.CheckName}  is isolated");
+                                Randomizer.Rooms.RoomDict[currentRoom.RoomName] = currentRoom;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

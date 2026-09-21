@@ -26,8 +26,10 @@ namespace TPRandomizer.Hints.HintCreator
                 HintCategory.Southern_Desert,
                 HintCategory.Northern_Desert,
                 HintCategory.Golden_Wolf,
+                HintCategory.Lantern_Chests,
+                HintCategory.Lakebed_Temple_Underwater,
             };
-
+        
         private static readonly Dictionary<Zone, string> dungeonZoneToRegionName =
             new()
             {
@@ -89,6 +91,20 @@ namespace TPRandomizer.Hints.HintCreator
                     "validAreas",
                     null
                 );
+
+                //
+                List<string> validCategoryStrList = HintSettingUtils.getOptionalStringList(
+                    options,
+                    "validCategories",
+                    null
+                );
+                if (validCategoryStrList != null)
+                {
+                    inst.areaType = AreaId.AreaType.Category;
+                    validAreaStrList = validCategoryStrList;
+                }
+                //
+
                 if (validAreaStrList != null)
                 {
                     inst.validAreas = new();
@@ -311,8 +327,9 @@ namespace TPRandomizer.Hints.HintCreator
 
                 // Important: if an already hinted check (such as self-hinted Charlo) is GOOD, then
                 // we cannot hint the area as barren, even if that check is not an unknown check.
-                // Therefore we need to do this check before worrying about unknown vs not checks.
-                if (!itemAllowsBarrenForArea && genData.CheckWouldPreventBarren(checkName))
+                // Therefore we need to check if the check would prevent barren before worrying
+                // about unknown vs not checks.
+                if (!itemAllowsBarrenForArea && genData.CheckWouldPreventBarren(checkName, areaId))
                 {
                     // Area can still be hinted barren for certain checks which are technically
                     // important/good but which should not actually prevent barren. For example, LBT
@@ -375,13 +392,13 @@ namespace TPRandomizer.Hints.HintCreator
                     List<string> result = new(bRoom.getCheckNames());
                     switch (bossRoom)
                     {
-                        case "Goron Mines Boss Room":
+                         case "GM Boss Room":
                             result.AddRange(CheckFunctions.postFyrusChecks);
                             break;
-                        case "Snowpeak Ruins Boss Room":
+                         case "SPR Boss Room":
                             result.AddRange(CheckFunctions.postBlizettaChecks);
                             break;
-                        case "Temple of Time Boss Room":
+                       case "ToT Boss Room":
                             result.AddRange(CheckFunctions.postArmogohmaChecks);
                             break;
                     }
@@ -424,7 +441,7 @@ namespace TPRandomizer.Hints.HintCreator
                             result.Add(AreaId.Category(category));
                         }
                         break;
-                    }
+                    }        
                     default:
                         throw new Exception(
                             $"Failed to provide default baseAreaIds for areaType '{areaType}'."
@@ -562,6 +579,54 @@ namespace TPRandomizer.Hints.HintCreator
                         };
 
                     foreach (Zone zone in overworldZones)
+                    {
+                        result.Add(AreaId.Zone(zone));
+                    }
+                    break;
+                }
+                case "allminusfishjournal":
+                {
+                    HashSet<Zone> allminusfishjournal =
+                        new()
+                        {
+                            Zone.Ordon,
+                            Zone.Sacred_Grove,
+                            Zone.Faron_Field,
+                            Zone.Faron_Woods,
+                            Zone.Kakariko_Gorge,
+                            Zone.Kakariko_Village,
+                            Zone.Kakariko_Graveyard,
+                            Zone.Eldin_Field,
+                            Zone.North_Eldin,
+                            Zone.Death_Mountain,
+                            Zone.Hidden_Village,
+                            Zone.Lanayru_Field,
+                            Zone.Beside_Castle_Town,
+                            Zone.South_of_Castle_Town,
+                            Zone.Castle_Town,
+                            Zone.Agithas_Castle,
+                            Zone.Great_Bridge_of_Hylia,
+                            Zone.Lake_Hylia,
+                            Zone.Lake_Lantern_Cave,
+                            Zone.Lanayru_Spring,
+                            Zone.Zoras_Domain,
+                            Zone.Upper_Zoras_River,
+                            Zone.Gerudo_Desert,
+                            Zone.Bulblin_Camp,
+                            Zone.Snowpeak_Mountain,
+                            Zone.Cave_of_Ordeals,
+                            Zone.Forest_Temple,
+                            Zone.Goron_Mines,
+                            Zone.Lakebed_Temple,
+                            Zone.Arbiters_Grounds,
+                            Zone.Snowpeak_Mountain,
+                            Zone.Temple_of_Time,
+                            Zone.City_in_the_Sky,
+                            Zone.Palace_of_Twilight,
+                            Zone.Hyrule_Castle,
+                        };
+
+                    foreach (Zone zone in allminusfishjournal)
                     {
                         result.Add(AreaId.Zone(zone));
                     }

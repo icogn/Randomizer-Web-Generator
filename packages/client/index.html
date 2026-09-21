@@ -105,7 +105,19 @@
       <div class="blackbg">
         <div style="display: flex; align-items: center">
           <div style="font-size: 24px; padding-bottom: 20px">
-            Seed Generation
+            Seed Generation <br />
+            <p style="color: goldenrod; font-size: 20px">
+              Disclaimer: This mod is NOT compatible with Dusklight. Any source
+              claiming otherwise is likely AI-Generated and should not be
+              trusted. <br />For more information, visit the
+              <a href="https://twilitrealm.dev/" style="color: skyblue"
+                >official Dusklight website</a
+              >
+              or join the
+              <a href="https://discord.gg/6NpMhefCK9" style="color: skyblue"
+                >Twilit Realm Discord</a
+              >.
+            </p>
           </div>
           <!-- <button class="primaryButton" style="margin-left: auto">
 						Share
@@ -205,6 +217,48 @@
                 />
                 <label for="groveEntranceCheckbox">
                   Sacred Grove Does Not Require Skull Kid </label
+                ><br />
+              </div>
+              <div
+                data-tooltip-text="If checked, the Coro Key will unlock Faron Woods.&#0010;"
+                data-tooltip-position="left"
+              >
+                <input
+                  type="checkbox"
+                  id="coroKeyCheckbox"
+                  name="coroKey"
+                  value=""
+                />
+                <label for="coroKeyCheckbox">
+                  Coro Key Unlock Faron Woods </label
+                ><br />
+              </div>
+              <div
+                data-tooltip-text="If checked, the Boomerang and the Golden Cucco will be required to cross the Bridges between North Faron Woods and Lost Woods.&#0010;"
+                data-tooltip-position="left"
+              >
+                <input
+                  type="checkbox"
+                  id="lockedLWCheckbox"
+                  name="lockedLW"
+                  value=""
+                />
+                <label for="lockedLWCheckbox">
+                  Boomerang required to access Lost Woods </label
+                ><br />
+              </div>
+              <div
+                data-tooltip-text="If checked, removes the Plumm access into Upper Zora's Domain and excludes all Plumm-related checks.&#0010;"
+                data-tooltip-position="left"
+              >
+                <input
+                  type="checkbox"
+                  id="plumacessCheckbox"
+                  name="plumAcess"
+                  value=""
+                />
+                <label for="plumacessCheckbox">
+                  Remove Plumm </label
                 ><br />
               </div>
             </fieldset>
@@ -699,7 +753,7 @@
               >
               <input
                 type="range"
-                min="1"
+                min="0"
                 max="2000"
                 value="2000"
                 class="liSlider"
@@ -751,7 +805,7 @@
               <div
                 class="selectGroup"
                 style="margin-top: 8px"
-                data-tooltip-text="'Reduced': Sets the wallet capacities to 99, 500, and 1000&#0010;&#0010;'Vanila': Sets the wallet capacities to 300, 600, and 1000.&#0010;&#0010;'HD': Sets the wallet capacities to 500, 1000, and 2000.&#0010;&#0010;'Large': Sets the wallet capacities to 1000, 5000, and 9999."
+                data-tooltip-text="'Reduced': Sets the wallet capacities to 99, 500, and 1000&#0010;&#0010;'Vanila': Sets the wallet capacities to 300, 600, and 1000.&#0010;&#0010;'HD': Sets the wallet capacities to 500, 1000, and 2000.&#0010;&#0010;'Large': Sets the wallet capacities to 1000, 5000, and 9999.&#0010;&#0010;'Minimal': Sets the wallet capacities to 0, 300, and 600."
                 data-tooltip-position="left"
               >
                 <label for="walletSizeFieldset">Wallet Size</label><br />
@@ -760,6 +814,7 @@
                   <option value="1" selected>Vanilla</option>
                   <option value="2">HD</option>
                   <option value="3">Large</option>
+                  <option value="4">Minimal</option>
                 </select>
               </div>
               <div class="selectGroup" style="margin-top: 8px">
@@ -875,6 +930,20 @@
                   Great Spin Does Not Check Health </label
                 ><br />
               </div>
+              <div
+                style="width: 90%"
+                data-tooltip-text="If enabled, the Oil Bottle can be dropped like any other bottled item.&#0010;"
+              >
+                <input
+                  type="checkbox"
+                  id="canDropOilBottleCheckbox"
+                  name="canDropOilBottle"
+                  value=""
+                />
+                <label for="canDropOilBottleCheckbox">
+                  Can Drop Oil Bottle </label
+                ><br />
+              </div>
             </fieldset>
             <fieldset id="hintSettingsFieldset" style="height: auto">
               <legend>Hint Settings</legend>
@@ -890,6 +959,8 @@
                   <option value="3" selected="selected">Balanced</option>
                   <option value="1">Season 1</option>
                   <option value="6">Season 2</option>
+                  <option value="7">Drehen S2</option>
+                  <option value="8">Drehen S3</option>
                   <option value="4">Strong</option>
                   <option value="5">Very Strong</option>
                   <option value="2">Weak</option>
@@ -1267,6 +1338,15 @@
                     <input type="checkbox" id="lbtShortcutCheckbox" value="" />
                     <label for="lbtShortcutCheckbox"
                       >Open Lakebed Water Supplies</label
+                    ><br />
+                  </div>
+                  <div
+                    style="width: 90%"
+                    data-tooltip-text="If enabled, all rocks and stalactites in Lakebed Temple are destroyed, allowing the player to access all areas of the dungeon without using the Bombs or Water Bombs.&#0010;"
+                  >
+                    <input type="checkbox" id="blownLBTRocksCheckbox" value="" />
+                    <label for="blownLBTRocksCheckbox"
+                      >Blow All Rocks & Stalactites</label
                     ><br />
                   </div>
                 </fieldset>
@@ -1713,6 +1793,30 @@
                       Remove Entrance Wall of Darkness </label
                     ><br />
                   </div>
+                  <div
+                style="width: 90%"
+                data-tooltip-text="Delete the first keylock of East wing first door and West wing first door"
+                >
+                <input
+                  type="checkbox"
+                  id="lessKeyPalaceCheckbox"
+                  name="lessKeyPalace"
+                  value=""
+                />
+                <label for="lessKeyPalaceCheckbox"> Less Keys Palace</label><br />
+              </div>
+              <div
+                style="width: 90%"
+                data-tooltip-text="Skip zant phases to the final phase"
+                >
+                <input
+                  type="checkbox"
+                  id="skipZantCheckbox"
+                  name="skipZant"
+                  value=""
+                />
+                <label for="skipZantCheckbox"> Skip Zant</label><br />
+              </div>
                 </fieldset>
               </div>
             </div>
@@ -1860,6 +1964,20 @@
                     />
                     <label for="hcShortcutCheckbox"
                       >Lower Hyrule Castle Chandelier</label
+                    ><br />
+                  </div>
+                   <div
+                    style="width: 90%"
+                    data-tooltip-text="If enabled,The Castle Gate leads directly to the final fight"
+                  >
+                    <input
+                      type="checkbox"
+                      id="hcSkipCheckbox"
+                      name="Skip Hyrule Castle"
+                      value=""
+                    />
+                    <label for="hcSkipCheckbox"
+                      >Skip Hyrule Castle</label
                     ><br />
                   </div>
                 </fieldset>
@@ -2037,6 +2155,20 @@
               />
               <label for="autoFillWalletCheckbox">
                 Automatically Fill Wallets</label
+              ><br />
+            </div>
+            <div
+              style="width: 90%"
+              data-tooltip-text="When returning to spawn, the player gains a small amount of Arrows, Bombs, and Lantern Oil if their respective bags are empty.&#0010;"
+            >
+              <input
+                type="checkbox"
+                id="autoRefillConsumablesCheckbox"
+                name="Auto Refill Consumables Checkbox"
+                value=""
+              />
+              <label for="autoRefillConsumablesCheckbox">
+                Automatically Refill Consumables</label
               ><br />
             </div>
           </fieldset>
