@@ -159,26 +159,7 @@
           {
             "hintDef": [
               {
-                "maxPicks": 3,
                 "hintDef": [
-                  // {
-                  //   "hintType": "barren",
-                  //   "iterations": 1,
-                  //   "starting": 1,
-                  //   "options": {
-                  //     "validAreas": [
-                  //       "Forest Temple",
-                  //       "Goron Mines",
-                  //       "Lakebed Temple",
-                  //       "Arbiter's Grounds",
-                  //       "Snowpeak Ruins",
-                  //       "Temple of Time",
-                  //       "City in the Sky",
-                  //       "Palace of Twilight",
-                  //       "Hyrule Castle"
-                  //     ]
-                  //   }
-                  // },
                   {
                     "hintType": "barren",
                     "iterations": 4,
