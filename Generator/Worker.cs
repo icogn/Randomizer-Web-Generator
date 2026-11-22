@@ -36,11 +36,11 @@ namespace TPRandomizer
                 {
                     // seedId, settingsString, isRaceSeed, seed
                     string seed = "";
-                    if (args.Length > 4)
+                    if (args.Length > 5)
                     {
-                        seed = args[4];
+                        seed = args[5];
                     }
-                    Randomizer.CreateInputJson(args[1], args[2], args[3], seed);
+                    Randomizer.CreateInputJson(args[1], args[2], args[3], args[4], seed);
                     break;
                 }
                 case "generate_final_output2":

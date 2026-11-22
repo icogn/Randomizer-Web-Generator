@@ -60,6 +60,7 @@ namespace TPRandomizer
             string idParam,
             string settingsString,
             string raceSeedParam,
+            string hintDistJson,
             string seed
         )
         {
@@ -95,6 +96,11 @@ namespace TPRandomizer
                     throw new Exception("input.json already exists for the id '" + id + "'.");
                 }
             }
+
+            string decodedHintDistJson =
+                hintDistJson == "none"
+                    ? null
+                    : Encoding.UTF8.GetString(Convert.FromBase64String(hintDistJson));
 
             // Generate seedHash from seed
             if (seed == null || seed.Length < 1)
@@ -223,7 +229,8 @@ namespace TPRandomizer
                         SSettings,
                         playthroughSpheres,
                         Randomizer.Rooms.RoomDict["Root"],
-                        isRaceSeed
+                        isRaceSeed,
+                        decodedHintDistJson
                     );
 
                     customMsgData = gen.Generate();

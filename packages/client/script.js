@@ -458,6 +458,15 @@ window.addEventListener('pageshow', function (event) {
 });
 
 function onDomContentLoaded() {
+  try {
+    const hintDistStr = localStorage.getItem('lastHintDistStr');
+    if (hintDistStr) {
+      document.getElementById('hintDistField').value = hintDistStr;
+    }
+  } catch (e) {
+    // do nothing
+  }
+
   initJwt();
 
   initDevFooter();
@@ -1650,9 +1659,49 @@ function genlogicalTricksBits() {
   };
 }
 
+function parseJSONWithComments(jsoncString) {
+  // 1. Strip // and /* */ comments while ignoring anything inside double quotes
+  let cleanJson = jsoncString.replace(
+    /"(?:\\.|[^"\\])*"|\/\/[^\r\n]*|\/\*[\s\S]*?\*\//g,
+    (match) => (match.startsWith('"') ? match : '')
+  );
+
+  // 2. Optional: Strip trailing commas (common in JSONC config files)
+  cleanJson = cleanJson.replace(/,\s*([\]}])/g, '$1');
+
+  return JSON.parse(cleanJson);
+}
+
 function doGenerateCall(isRaceSeed) {
   if (generateCallInProgress) {
     return;
+  }
+
+  const hintDistField = document.getElementById('hintDistField');
+  let jsonString = undefined;
+  try {
+    const value = hintDistField.value.trim();
+    if (!value) {
+      // If empty, use special "none" value.
+      jsonString = 'none';
+    } else {
+      const parsed = parseJSONWithComments(value);
+      const bytes = new TextEncoder().encode(JSON.stringify(parsed));
+      const binString = Array.from(bytes, (byte) =>
+        String.fromCodePoint(byte)
+      ).join('');
+      jsonString = btoa(binString);
+    }
+  } catch (e) {
+    const msg = 'Custom Hint Distribution JSON is not valid JSON.';
+    console.error(msg);
+    alert(msg);
+    return;
+  }
+  try {
+    localStorage.setItem('lastHintDistStr', hintDistField.value);
+  } catch (e) {
+    // do nothing
   }
 
   generateCallInProgress = true;
@@ -1682,6 +1731,7 @@ function doGenerateCall(isRaceSeed) {
         settingsString: settingsString,
         seed: $('#seed').val(),
         isRaceSeed: Boolean(isRaceSeed),
+        hintDistJson: jsonString,
         requesterHash,
       }),
     })

@@ -15,6 +15,7 @@ type GenerationRequest = {
   settingsString: string;
   seed: string;
   isRaceSeed: boolean;
+  hintDistJson: string;
 };
 
 type SeedIdToSeedGenStatus = {
@@ -164,6 +165,7 @@ function processQueueItem() {
         'id' + idToProcess,
         seedGenStatus.settingsString,
         seedGenStatus.isRaceSeed ? 'true' : 'false',
+        seedGenStatus.hintDistJson,
         seedGenStatus.seed,
       ],
       (error, data) => {
@@ -293,7 +295,8 @@ function addToFastQueue(
     genElevenCharId(),
     generationRequest.settingsString,
     generationRequest.seed,
-    generationRequest.isRaceSeed
+    generationRequest.isRaceSeed,
+    generationRequest.hintDistJson
   );
 
   seedIdToSeedGenStatus[seedId] = requestStatus;

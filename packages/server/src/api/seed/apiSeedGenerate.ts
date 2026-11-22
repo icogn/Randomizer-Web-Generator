@@ -4,7 +4,8 @@ import { normalizeStringToMax128Bytes } from 'src/util/string';
 
 function apiSeedGenerate(req: express.Request, res: express.Response) {
   const { userId } = req;
-  const { settingsString, seed, isRaceSeed, requesterHash } = req.body;
+  const { settingsString, seed, isRaceSeed, requesterHash, hintDistJson } =
+    req.body;
 
   if (!userId) {
     res.status(403).send({ error: { message: 'Forbidden' } });
@@ -26,6 +27,11 @@ function apiSeedGenerate(req: express.Request, res: express.Response) {
     return;
   }
 
+  if (typeof hintDistJson !== 'string') {
+    res.status(400).send({ error: { message: 'Malformed request.' } });
+    return;
+  }
+
   const seedStr = seed ? normalizeStringToMax128Bytes(seed) : '';
 
   const {
@@ -39,6 +45,7 @@ function apiSeedGenerate(req: express.Request, res: express.Response) {
       settingsString,
       seed: seedStr,
       isRaceSeed,
+      hintDistJson,
     },
     req.body.requesterHash
   );

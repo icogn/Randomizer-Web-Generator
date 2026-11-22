@@ -1378,6 +1378,14 @@ namespace TPRandomizer.Hints.Settings
             string jsonPath = ResolveJsonPath(genData);
             string contents = File.ReadAllText(jsonPath);
 
+            return fromString(genData, contents);
+        }
+
+        public static HintSettings fromString(HintGenData genData, string contents)
+        {
+            if (StringUtils.isEmpty(contents))
+                return null;
+
             JObject root = JObject.Parse(contents);
 
             HintSettings ret = new HintSettings();

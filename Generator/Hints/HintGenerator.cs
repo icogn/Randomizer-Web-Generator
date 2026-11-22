@@ -15,6 +15,7 @@ namespace TPRandomizer.Hints
     class HintGenerator
     {
         private HintGenData genData;
+        private string decodedHintDistJson;
         private HashSet<string> deadNodeIds = new();
         private HintGenCache cache = new();
         private HintSettings hintSettings;
@@ -25,7 +26,8 @@ namespace TPRandomizer.Hints
             SharedSettings sSettings,
             PlaythroughSpheres playthroughSpheres,
             Room startingRoom,
-            bool isRaceSeed
+            bool isRaceSeed,
+            string decodedHintDistJson
         )
         {
             this.genData = new HintGenData(
@@ -35,6 +37,7 @@ namespace TPRandomizer.Hints
                 startingRoom,
                 isRaceSeed
             );
+            this.decodedHintDistJson = decodedHintDistJson;
         }
 
         public CustomMsgData Generate()
@@ -60,7 +63,10 @@ namespace TPRandomizer.Hints
                 return customMsgDataBuilder.Build(genData.sSettings);
             }
 
-            hintSettings = HintSettings.fromPath(genData);
+            if (decodedHintDistJson != null)
+                hintSettings = HintSettings.fromString(genData, decodedHintDistJson);
+            else
+                hintSettings = HintSettings.fromPath(genData);
 
             mutableGroups = hintSettings.createMutableGroups();
 
