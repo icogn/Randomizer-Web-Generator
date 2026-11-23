@@ -149,10 +149,11 @@
       }
     },
     {
-      "spot": "hyrule_castle_sign",
+      "spot": "ordon_sign",
       "hintDef": {
         "hintType": "item",
         "options": {
+          "canBeClaimHinted": true,
           "validItems": ["Purple_Rupee_Links_House"],
           "areaType": "zone"
         }
