@@ -1,6 +1,8 @@
 # Client
 FROM node:lts-alpine AS packages-build
 
+RUN npm install -g corepack && corepack enable
+
 WORKDIR /usr/app/
 
 RUN mkdir -p ./.yarn/releases
