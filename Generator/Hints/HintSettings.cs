@@ -105,27 +105,21 @@ namespace TPRandomizer.Hints.Settings
                 "Lost Woods Lantern Chest",
                 // "Sacred Grove Baba Serpent Grotto Chest", // takes slot for better hints
                 "Sacred Grove Spinner Chest",
-                "Faron Field Bridge Chest",
                 "Eldin Lantern Cave Lantern Chest",
-                "Kak Gorge Double Clawshot Chest",
-                "Eldin Spring Underwater Chest",
                 // "Kakariko Village Bomb Rock Spire Heart Piece", // takes slot for better hints
                 // "Kakariko Village Malo Mart Hawkeye",
                 // "Kakariko Watchtower Alcove Chest", // not needed
                 // "Talo Sharpshooting",
                 "Gift From Ralis",
-                "Eldin Field Bomb Rock Chest",
                 "Eldin Field Bomskit Grotto Lantern Chest",
                 "Eldin Stockcave Lantern Chest",
                 "Death Mountain Alcove Chest",
                 // "Death Mountain Trail Poe",
+                // Peekable in CSMC, but still out of the way and can be a useful hint.
                 "Lanayru Field Behind Gate Underwater Chest",
                 "Lanayru Field Skulltula Grotto Chest",
                 "Lanayru Field Spinner Track Chest",
-                "OCT South Fountain Chest",
-                "OCT South Tightrope Chest",
                 "STAR Prize 2",
-                "Lake Hylia Underwater Chest",
                 "Lake Hylia Shell Blade Grotto Chest",
                 "Lanayru Spring Back Room Lantern Chest",
                 "ZD Extinguish All Torches Chest",
@@ -150,12 +144,25 @@ namespace TPRandomizer.Hints.Settings
             // (probably stick to ones which require only a single item?).
             // Need to adjust params to pass this info in.
 
+            Func<HintGenData, bool> isCsmcDisabled = (genData) =>
+                !genData.sSettings.chestSizeMatchesContent;
+
             Dictionary<string, Func<HintGenData, bool>> conditionalSometimes =
                 new()
                 {
                     { "Ordon Cat Rescue", genNotSphere0Lambda("Ordon Cat Rescue") },
-                    // Fishing Hole Bottle is hinted by checking the sign next to it now
-                    // { "Fishing Hole Bottle", genNotSphere0Lambda("Fishing Hole Bottle") },
+                    // Certain easily/reasonable peekable chests are only worth hinting when CSMC is
+                    // not enabled.
+                    { "Faron Field Bridge Chest", isCsmcDisabled },
+                    { "Kak Gorge Double Clawshot Chest", isCsmcDisabled },
+                    { "Eldin Spring Underwater Chest", isCsmcDisabled },
+                    { "Eldin Field Bomb Rock Chest", isCsmcDisabled },
+                    { "OCT South Fountain Chest", isCsmcDisabled },
+                    // Note: tightrope is peekable from the ground. Given that this is right next to
+                    // the fountain chest, you would do both at the same time, so it is valid to
+                    // assume people will peek this one.
+                    { "OCT South Tightrope Chest", isCsmcDisabled },
+                    { "Lake Hylia Underwater Chest", isCsmcDisabled },
                 };
             foreach (KeyValuePair<string, Func<HintGenData, bool>> pair in conditionalSometimes)
             {
