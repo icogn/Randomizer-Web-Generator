@@ -150,6 +150,7 @@ namespace TPRandomizer.SSettings.Enums
         Strong = 4,
         Very_Strong = 5,
         Season_2 = 6,
+        Bulblins = 7,
     }
 
     public enum IliaQuest

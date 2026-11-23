@@ -66,6 +66,13 @@ export const PRESETS = [
     description:
       'Season 2 tournament settings. These are the latest tournament settings.',
   },
+  {
+    name: 'Bulblins Test',
+    aliases: ['bulblins'],
+    origSettingsStr:
+      '7sY8x2kP99999999Caaaa_v6KD2Cd5GGm2VGQG64HaX7cJny-NoYqQZKQc7S_Xshb-w7IwNIwNIwN3_oT3qhXKOqWm6L9Co1BWZ40FiUMl1mHMePGt3T8Oba4N8DdOOfFr-9v-dvVXArgF4xaL19mKr78SMLTbWohHGwsm8vnIOKX4aQ0ubrZ1aiHjGS-2eBLqIQDCP4c5q7K80i_YZ81YnCL0ENQSnHZQPTH1bTjt4uKenGj5fRp19nfIA4TWXZEaa2K4qw76QqarDCWx5hT0qGu1XEszDuvGW2X_YcI4K4ePyom413___Wm8ZH4IrY8sX4x8YEuH4C8ag0G80KbWARe5Ci2dA1JU0eS0Lq0ABG52q2gK1Ku0gY0LbmAem5Sm2eg1Jn0hAWKSGAEG5JK2ha1K40iGWM80B3u5Xu2mw1OS0iDWM6WB385XO2mc1PL0ig0MKmBAG5b42oS1PD0ic0MImB9G5aa2oG1P70ie0MJmB8m5X82mY1OF0i70M3GB1W5Wi2mK1O90i40M1WB0e5WG2m61On0iO0MBWB5e5Ym2jW1qK0nrWOgmAmO5_y',
+    description: 'Test settings for the Bulblins tournament.',
+  },
 ];
 
 export const PRESETS_SAFE_STR = escapeHtml(JSON.stringify(PRESETS));

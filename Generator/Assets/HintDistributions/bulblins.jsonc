@@ -1,0 +1,428 @@
+{
+  // Bulblins distribution
+  "starting": {
+    "spot": "midna",
+    "excludeFromGroups": true
+  },
+  "agitha": true,
+  "jovani": {
+    "minFoundSoulsForHint": 10,
+    "maxFoundSoulsForVagueItem": 20
+  },
+  "caveOfOrdeals": true,
+  "dungeons": {
+    "bigKeyHints": true
+  },
+  "beyondPointZones": ["alias:all"],
+  "barren": {
+    "monopolizeSpots": true,
+    "ownZoneShowsAsJunkHint": true
+  },
+  "always": {
+    "monopolizeSpots": true,
+    "idealNumSpots": 3,
+    "copies": 2,
+    "groupId": "overworld"
+  },
+  //
+  "addChecks": {
+    // "Lake Hylia Shell Blade Grotto Chest": ["always"],
+    "ZD Underwater Goron": ["always"],
+    "STAR Prize 2": ["always"],
+    // "CT Malo Mart Magic Armor": ["always"],
+    // "Doctors Office Balcony Chest": ["sometimes"],
+    // "Sacred Grove Past Owl Statue Chest": ["sometimes"],
+    "Sacred Grove Baba Serpent Grotto Chest": ["sometimes"]
+  },
+  "removeChecks": {
+    "PoT Collect Both Sols": ["always"],
+    "Herding Goats Reward": ["sometimes"],
+    "Wrestling With Bo": ["sometimes"],
+    "ZD Extinguish All Torches Chest": ["sometimes"],
+    "ZD Light All Torches Chest": ["sometimes"],
+    "Eldin Spring Underwater Chest": ["sometimes"],
+    "Lake Hylia Underwater Chest": ["sometimes"],
+    "AG Death Sword Chest": ["sometimes"],
+    "CitS Aeralfos Chest": ["sometimes"]
+  },
+  "removeItems": {
+    "Progressive_Sword": ["sometimes"]
+  },
+  //
+  "groups": {
+    "overworld": ["alias:overworldZones", "-snowpeakmountain", "-ordon"],
+    "overworld2nd": ["alias:overworldZones", "-snowpeakmountain", "-ordon"],
+    "requiredDungeons": ["alias:requiredDungeons"]
+  },
+  // Special hints generated right after Always hints are generated. These are
+  // created even if the dungeon is hinted barren or the check is already hinted
+  // barren by a BeyondThisPoint hint.
+  "specialHintDefs": [
+    // {
+    //   "spot": "ordon_sign",
+    //   "hintDef": [
+    //     {
+    //       "selectionType": "randomOrder",
+    //       "hintDef": [
+    //         {
+    //           "hintType": "location",
+    //           "options": {
+    //             "validChecks": ["Herding Goats Reward"]
+    //           }
+    //         },
+    //         {
+    //           "hintType": "location",
+    //           "options": {
+    //             "validChecks": ["OCT South Tektite Grotto Chest"]
+    //           }
+    //         },
+    //         {
+    //           "hintType": "location",
+    //           "options": {
+    //             "validChecks": ["Auru Gift To Fyer"]
+    //           }
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // },
+    {
+      "spot": "forest_temple_sign",
+      "hintDef": {
+        "hintType": "location",
+        "options": {
+          "canBeClaimHinted": true,
+          "validChecks": ["FT Gale Boomerang"]
+        }
+      }
+    },
+    {
+      "spot": "snowpeak_ruins_sign",
+      "hintDef": {
+        "maxPicks": 1,
+        "hintDef": [
+          {
+            "hintType": "location",
+            "options": {
+              "canBeClaimHinted": true,
+              "validChecks": [
+                "SPR Chapel Chest",
+                "SPR Lobby Chandelier Chest",
+                "SPR Northeast Chandelier Chest"
+              ],
+              "validItems": ["Snowpeak_Ruins_Bedroom_Key"]
+            }
+          },
+          {
+            "hintType": "location",
+            "options": {
+              "canBeClaimHinted": true,
+              "validChecks": [
+                "SPR Chapel Chest",
+                "SPR Lobby Chandelier Chest",
+                "SPR Northeast Chandelier Chest"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "spot": "temple_of_time_sign",
+      "hintDef": {
+        "hintType": "location",
+        "options": {
+          "canBeClaimHinted": true,
+          "validChecks": ["ToT Darknut Chest"]
+        }
+      }
+    },
+    {
+      "spot": "palace_of_twilight_sign",
+      "hintDef": {
+        "hintType": "location",
+        "options": {
+          "canBeClaimHinted": true,
+          "checkStatusDisplay": "required_info",
+          "validChecks": ["PoT Collect Both Sols"]
+        }
+      }
+    },
+    {
+      "spot": "hyrule_castle_sign",
+      "hintDef": {
+        "hintType": "item",
+        "options": {
+          "validItems": ["Purple_Rupee_Links_House"],
+          "areaType": "zone"
+        }
+      }
+    }
+  ],
+  "hints": [
+    {
+      "groupId": "overworld",
+      "hintDef": {
+        "copies": 2,
+        "hintDef": [
+          {
+            "hintDef": [
+              {
+                "hintDef": [
+                  {
+                    "hintType": "barren",
+                    "iterations": 1,
+                    "starting": 1,
+                    "options": {
+                      "validAreas": [
+                        "Forest Temple",
+                        "Goron Mines",
+                        "Lakebed Temple",
+                        "Arbiter's Grounds",
+                        "Snowpeak Ruins",
+                        "Temple of Time",
+                        "City in the Sky",
+                        "Palace of Twilight",
+                        "Hyrule Castle"
+                      ]
+                    }
+                  },
+                  {
+                    "hintType": "barren",
+                    "iterations": 3,
+                    "starting": 3,
+                    "saveToVar": "barrenHints",
+                    "options": {
+                      "validAreas": ["alias:overworldzonesnolf"],
+                      "invalidAreas": ["Lanayru Field"]
+                    }
+                  },
+                  {
+                    "starting": 1,
+                    "hintDef": {
+                      "hintType": "location",
+                      "options": {
+                        "validChecks": [
+                          "Herding Goats Reward",
+                          "OCT South Tektite Grotto Chest",
+                          "Auru Gift To Fyer"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            // Prioritizes hinting importance counts 1,2,3 with slight
+            // preference for 1. Falls back to any count, but for S2 this is
+            // basically guaranteed not to happen.
+            "hintType": "importanceCount",
+            "saveToVar": "firstLayerIcHint",
+            "options": {
+              "indicateImportant": false,
+              "validAreas": ["Lanayru Field"]
+            }
+          },
+          {
+            // Generates at most 3 hints at 1 copy each, then fills using var
+            // until 6 hint copies total.
+            "maxPicks": 6,
+            "hintDef": [
+              {
+                "maxPicks": 3,
+                "copies": 1,
+                "saveToVar": "firstLayerPathHints",
+                "hintDef": [
+                  {
+                    "hintType": "path",
+                    "iterations": 3,
+                    "options": {
+                      "invalidItems": ["Progressive_Sword"],
+                      "validGoals": [
+                        "Diababa",
+                        "Fyrus",
+                        "Morpheel",
+                        "Stallord",
+                        "Blizzeta",
+                        "Armogohma",
+                        "Argorok",
+                        "Zant"
+                      ]
+                    }
+                  }
+                ]
+              },
+              // Fill in with extra path hint copies until we have the base 6
+              // copies.
+              {
+                "hintType": "var",
+                "copies": 1,
+                "iterations": 99,
+                "options": {
+                  "varName": "firstLayerPathHints",
+                  "randomOrder": true
+                }
+              }
+            ]
+          },
+          {
+            // Num swords in province with most swords (or tied for most).
+            "hintType": "numItemInArea",
+            "options": {
+              "item": "Progressive_Sword",
+              "areaType": "province",
+              "validAreas": [
+                "Ordona",
+                "Faron",
+                "Eldin",
+                "Lanayru",
+                "Desert",
+                "Dungeon"
+              ],
+              "order": "desc"
+            }
+          },
+          {
+            // Num swords in province with fewest swords (or tied for fewest).
+            "hintType": "numItemInArea",
+            "options": {
+              "item": "Progressive_Sword",
+              "areaType": "province",
+              "validAreas": [
+                "Ordona",
+                "Faron",
+                "Eldin",
+                "Lanayru",
+                "Desert",
+                "Dungeon"
+              ],
+              "order": "asc"
+            }
+          },
+          // Fill layer with extra copies of the IC hint and path hints. Order
+          // not random so we do an extra IC hint before the sometimes.
+          {
+            "copies": 1,
+            "iterations": 99,
+            "hintDef": [
+              {
+                "hintType": "var",
+                "options": {
+                  "varName": "firstLayerIcHint"
+                }
+              },
+              {
+                "hintType": "var",
+                "iterations": 3,
+                "options": {
+                  "varName": "firstLayerPathHints",
+                  "randomOrder": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      // On required dungeon signs, hint a Ganondorf path and a Gale Boomerang
+      // hint if possible.
+      "groupId": "requiredDungeons",
+      "useFillerHints": false,
+      "hintDef": [
+        {
+          "maxPicks": 1,
+          "copies": 99,
+          "minCopies": 1,
+          "hintDef": [
+            {
+              "hintType": "item",
+              "options": {
+                "validItems": ["Boomerang"],
+                "validStatuses": ["bad"],
+                "allowKnownBarren": true,
+                "areaType": "zone",
+                "checkStatusDisplay": "required_info"
+              }
+            },
+            {
+              "hintType": "item",
+              "options": {
+                "validItems": ["Boomerang"],
+                "validStatuses": ["good"],
+                "invalidStatuses": ["required"],
+                "areaType": "province",
+                "checkStatusDisplay": "required_info"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      // 2nd layer is "sometimes" hints
+      "groupId": "overworld2nd",
+      "hintDef": {
+        "copies": 2,
+        "hintDef": [
+          {
+            "maxPicks": 5,
+            "hintDef": [
+              {
+                // Hint 1 dungeon sometimes
+                "hintDef": {
+                  "hintType": "location",
+                  "saveToVar": "2ndLayerDungeon",
+                  "options": {
+                    "markAsSometimes": true,
+                    "validChecks": [
+                      "GM Outside Clawshot Chest",
+                      "LBT Deku Toad Chest",
+                      "AG Death Sword Chest",
+                      "CitS West Wing First Chest",
+                      "CitS Aeralfos Chest",
+                      "PoT Big Key Chest"
+                    ]
+                  }
+                }
+              },
+              {
+                "hintType": "sometimes",
+                "minCopies": 1,
+                "saveToVar": "2ndLayerSometimes",
+                "iterations": 99,
+                "options": {
+                  "prioritizeNewZones": true
+                }
+              }
+            ]
+          },
+          // Fill in layer with extra copies of the sometimes hints
+          // (prioritizing Dungeon).
+          {
+            "hintDef": [
+              {
+                "hintType": "var",
+                "copies": 1,
+                "options": {
+                  "varName": "2ndLayerDungeon"
+                }
+              },
+              {
+                "hintType": "var",
+                "copies": 1,
+                "iterations": 99,
+                "options": {
+                  "varName": "2ndLayerSometimes",
+                  "randomOrder": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

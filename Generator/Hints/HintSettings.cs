@@ -1435,6 +1435,8 @@ namespace TPRandomizer.Hints.Settings
                     return Path.Combine(basePath, "very-strong.jsonc");
                 case HintDistribution.Weak:
                     return Path.Combine(basePath, "weak.jsonc");
+                case HintDistribution.Bulblins:
+                    return Path.Combine(basePath, "bulblins.jsonc");
                 default:
                     throw new Exception(
                         $"Unrecognized HintDistribution '{genData.sSettings.hintDistribution}'."
