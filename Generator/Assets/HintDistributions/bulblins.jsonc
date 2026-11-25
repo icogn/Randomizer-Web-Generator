@@ -28,7 +28,8 @@
   "addChecks": {
     // "Lake Hylia Shell Blade Grotto Chest": ["always"],
     "ZD Underwater Goron": ["always"],
-    "STAR Prize 2": ["always"],
+    "Desert Rock Grotto Lantern Chest": ["always"],
+    // "STAR Prize 2": ["always"],
     // "CT Malo Mart Magic Armor": ["always"],
     // "Doctors Office Balcony Chest": ["sometimes"],
     // "Sacred Grove Past Owl Statue Chest": ["sometimes"],
@@ -199,16 +200,50 @@
                     }
                   },
                   {
-                    "starting": 1,
+                    // "hintDef": [
+                    //   {
+                    //     "hintDef": {
+                    //       "hintType": "location",
+                    //       "options": {
+                    //         "validChecks": [
+                    //           "Herding Goats Reward",
+                    //           "OCT South Tektite Grotto Chest",
+                    //           "Auru Gift To Fyer"
+                    //         ]
+                    //       }
+                    //     }
+                    //   }
+                    // ]
                     "hintDef": {
-                      "hintType": "location",
-                      "options": {
-                        "validChecks": [
-                          "Herding Goats Reward",
-                          "OCT South Tektite Grotto Chest",
-                          "Auru Gift To Fyer"
-                        ]
-                      }
+                      "starting": 1,
+                      "maxPicks": 1,
+                      "selectionType": "randomOrder",
+                      // 50% chance to prioritize a bad check in order to make
+                      // it less likely to say "go here" immediately without
+                      // eliminating it entirely.
+                      "hintDef": [
+                        {
+                          "hintType": "location",
+                          "options": {
+                            "validChecks": [
+                              "Herding Goats Reward",
+                              "OCT South Tektite Grotto Chest",
+                              "Auru Gift To Fyer"
+                            ],
+                            "validStatuses": ["bad"]
+                          }
+                        },
+                        {
+                          "hintType": "location",
+                          "options": {
+                            "validChecks": [
+                              "Herding Goats Reward",
+                              "OCT South Tektite Grotto Chest",
+                              "Auru Gift To Fyer"
+                            ]
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -287,18 +322,17 @@
           },
           {
             // Num swords in province with fewest swords (or tied for fewest).
+            // Note: never hints Peak since excluded and never hints Ordona
+            // mainly to be sure we never hint it when Ordon already hinted
+            // barren, but also with 5 options we are guaranteed to have a
+            // 0-count one, and knowing if any of the below provinces have 0 is
+            // much more useful than Ordona.
             "hintType": "numItemInArea",
+            "minCopies": 1,
             "options": {
               "item": "Progressive_Sword",
               "areaType": "province",
-              "validAreas": [
-                "Ordona",
-                "Faron",
-                "Eldin",
-                "Lanayru",
-                "Desert",
-                "Dungeon"
-              ],
+              "validAreas": ["Faron", "Eldin", "Lanayru", "Desert", "Dungeon"],
               "order": "asc"
             }
           },
